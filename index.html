@@ -64,9 +64,10 @@
 
         .student-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: 2fr 0.5fr 0.7fr 1fr;
             gap: 15px;
             margin-bottom: 20px;
+            align-items: end;
         }
 
         .info-item {
@@ -96,6 +97,15 @@
 
         .name-select {
             width: 100%;
+        }
+
+        /* Estilo para cores alternadas na lista de alunos */
+        .name-select option:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .name-select option:nth-child(odd) {
+            background-color: rgba(240, 240, 240, 0.8);
         }
 
         .activity-title {
@@ -244,10 +254,6 @@
         .clear-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 8px rgba(244, 67, 54, 0.4);
-        }
-
-        .alternating-row:nth-child(even) {
-            background-color: rgba(255, 255, 255, 0.1);
         }
 
         /* Responsividade */
@@ -621,10 +627,6 @@
                 const option = document.createElement('option');
                 option.value = student.number;
                 option.textContent = student.name;
-                // Adicionar classe para linhas alternadas
-                if (index % 2 === 0) {
-                    option.classList.add('alternating-row');
-                }
                 studentSelect.appendChild(option);
             });
 
