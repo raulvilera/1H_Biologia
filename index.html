@@ -176,6 +176,18 @@
             display: block;
         }
 
+        /* Imagens aumentadas para questões específicas */
+        .question:nth-child(2) .question-image,
+        .question:nth-child(3) .question-image,
+        .question:nth-child(4) .question-image,
+        .question:nth-child(5) .question-image,
+        .question:nth-child(7) .question-image,
+        .question:nth-child(8) .question-image,
+        .question:nth-child(10) .question-image {
+            max-width: 90%;
+            margin: 20px auto;
+        }
+
         .options {
             margin-top: 20px;
         }
@@ -243,6 +255,13 @@
         .submit-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 8px rgba(76, 175, 80, 0.4);
+        }
+
+        .submit-btn:disabled {
+            background: linear-gradient(135deg, #a5d6a7 0%, #81c784 100%);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
         }
 
         .clear-btn {
@@ -327,6 +346,17 @@
             
             .option-text {
                 font-size: 0.95rem;
+            }
+            
+            /* Ajuste das imagens aumentadas para mobile */
+            .question:nth-child(2) .question-image,
+            .question:nth-child(3) .question-image,
+            .question:nth-child(4) .question-image,
+            .question:nth-child(5) .question-image,
+            .question:nth-child(7) .question-image,
+            .question:nth-child(8) .question-image,
+            .question:nth-child(10) .question-image {
+                max-width: 100%;
             }
         }
 
@@ -485,7 +515,7 @@
             { number: "86", name: "KAMILA NEVES BRITO", grade: "1ºH" }
         ];
 
-        // Questões da atividade (CORREÇÃO APLICADA: URL da imagem da questão 2 estava sem aspas)
+        // Questões da atividade com respostas ofuscadas
         const questions = [
             {
                 id: 1,
@@ -619,6 +649,9 @@
             }
         ];
 
+        // Variável para controlar se o formulário já foi enviado
+        let submitted = false;
+
         // Inicialização da página
         document.addEventListener('DOMContentLoaded', function() {
             // Preencher dropdown de alunos
@@ -723,6 +756,12 @@
 
             // Event listener para botão de enviar
             document.getElementById('submit-btn').addEventListener('click', function() {
+                // Verificar se já foi enviado
+                if (submitted) {
+                    alert('As respostas já foram enviadas. Você não pode enviar novamente.');
+                    return;
+                }
+                
                 const studentName = document.getElementById('student-name').value;
                 const studentNumber = document.getElementById('student-number').value;
                 const activityDate = document.getElementById('activity-date').value;
@@ -766,6 +805,17 @@
                 
                 const finalScore = (score / questions.length) * 10;
                 
+                // Marcar como enviado e desabilitar o botão
+                submitted = true;
+                document.getElementById('submit-btn').disabled = true;
+                document.getElementById('submit-btn').innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    Respostas Enviadas
+                `;
+                
                 // Enviar para o Google Sheets
                 submitToGoogleSheets(studentNumber, studentName, finalScore, activityDate);
             });
@@ -807,7 +857,3 @@
     </script>
 </body>
 </html>
-
-
-
-
