@@ -471,395 +471,192 @@
     </div>
 
    <script>
-        // Lista de alunos (extraída do anexo)
-        const students = [
-            { number: "1", name: "ALEXANDRE BATISTA DOS SANTOS", grade: "1ºH" },
-            { number: "5", name: "ANA LÍVIA BRAGA DOS SANTOS", grade: "1ºH" },
-            { number: "11", name: "DANIELLE OLIVEIRA DA SILVA NUNES", grade: "1ºH" },
-            { number: "14", name: "ELOYSA ANDRADE OLIVEIRA SILVA", grade: "1ºH" },
-            { number: "18", name: "FELIPE MARCONDES SILVA", grade: "1ºH" },
-            { number: "19", name: "GEOVANA FERREIRA DA SILVA SOUZA", grade: "1ºH" },
-            { number: "20", name: "GEOVANNA GABRIELA PIERRE SILVA", grade: "1ºH" },
-            { number: "24", name: "ISAAK ALVAREZ MARQUEZ CAETANO", grade: "1ºH" },
-            { number: "33", name: "KEMILLY VITORIA RODRIGUES MARIANO", grade: "1ºH" },
-            { number: "34", name: "LAURA LUIZA DOS SANTOS ALMEIDA", grade: "1ºH" },
-            { number: "37", name: "MARIA EDUARDA VENCESLAU DE SOUZA", grade: "1ºH" },
-            { number: "38", name: "MATHEUS CAVALCANTE LISBOA", grade: "1ºH" },
-            { number: "40", name: "MURILLO SOUZA RODRIGUES DOS SANTOS", grade: "1ºH" },
-            { number: "45", name: "PEDRO HENRIQUE MAURICIO DA SILVA CHAGAS", grade: "1ºH" },
-            { number: "48", name: "RHUAN LIMA OLIVEIRA", grade: "1ºH" },
-            { number: "49", name: "THAINA FIDELIS XAVIER DA SILVA", grade: "1ºH" },
-            { number: "54", name: "DENIS CASTRO DURVALDO", grade: "1ºH" },
-            { number: "56", name: "ISAAC LEMOS SANTOS", grade: "1ºH" },
-            { number: "57", name: "EMILLY EDUARDA BONIFACIO DE AMORIM CORREA", grade: "1ºH" },
-            { number: "59", name: "LEONARDO ABADE DA SILVA DANTAS", grade: "1ºH" },
-            { number: "62", name: "PYETRA GOMES MARTINS", grade: "1ºH" },
-            { number: "64", name: "CARLOS EDUARDO MARTINS DA SILVA", grade: "1ºH" },
-            { number: "66", name: "STELLA MARTINS DA SILVA", grade: "1ºH" },
-            { number: "67", name: "DYESSICA MAYARA DOS SANTOS GOMES", grade: "1ºH" },
-            { number: "68", name: "LARISSA DE LOURDES DOS SANTOS", grade: "1ºH" },
-            { number: "70", name: "GUSTAVO RODRIGUES DE SOUZA", grade: "1ºH" },
-            { number: "72", name: "NAYARA BARROS DE MORAIS", grade: "1ºH" },
-            { number: "73", name: "VITÓRIA SANTOS TEIXEIRA", grade: "1ºH" },
-            { number: "75", name: "JOÃO PAULO RODRIGUES DE SOUZA FILHO", grade: "1ºH" },
-            { number: "76", name: "MARIA EDUARDA DE OLIVEIRA RODRIGUES", grade: "1ºH" },
-            { number: "77", name: "LUIZ HENRIQUE JESUS DOS SANTOS FABRICIO", grade: "1ºH" },
-            { number: "78", name: "EDUARDO CARRASCOSA PINTOR", grade: "1ºH" },
-            { number: "79", name: "GUILHERME DANIEL VELOSO DOS SANTOS", grade: "1ºH" },
-            { number: "80", name: "JOAO GABRIEL AMORIM TOBIAS", grade: "1ºH" },
-            { number: "81", name: "RIAN SANTOS MACHADO", grade: "1ºH" },
-            { number: "82", name: "JULIA ARAUJO DE LIMA", grade: "1ºH" },
-            { number: "83", name: "BRENDA ROSA DA SILVA", grade: "1ºH" },
-            { number: "84", name: "CAMILA APPOLINÁRIO", grade: "1ºH" },
-            { number: "85", name: "ARTHUR CASTRO SILVA", grade: "1ºH" },
-            { number: "86", name: "KAMILA NEVES BRITO", grade: "1ºH" }
-        ];
+/* ===========================================================
+   DADOS DOS ALUNOS E QUESTÕES
+   =========================================================== */
+const students = [
+  { number: "1", name: "ALEXANDRE BATISTA DOS SANTOS", grade: "1ºH" },
+  { number: "5", name: "ANA LÍVIA BRAGA DOS SANTOS", grade: "1ºH" },
+  { number: "11", name: "DANIELLE OLIVEIRA DA SILVA NUNES", grade: "1ºH" },
+  { number: "14", name: "ELOYSA ANDRADE OLIVEIRA SILVA", grade: "1ºH" },
+  { number: "18", name: "FELIPE MARCONDES SILVA", grade: "1ºH" },
+  { number: "19", name: "GEOVANA FERREIRA DA SILVA SOUZA", grade: "1ºH" },
+  { number: "20", name: "GEOVANNA GABRIELA PIERRE SILVA", grade: "1ºH" },
+  { number: "24", name: "ISAAK ALVAREZ MARQUEZ CAETANO", grade: "1ºH" },
+  { number: "33", name: "KEMILLY VITORIA RODRIGUES MARIANO", grade: "1ºH" },
+  { number: "34", name: "LAURA LUIZA DOS SANTOS ALMEIDA", grade: "1ºH" },
+  { number: "37", name: "MARIA EDUARDA VENCESLAU DE SOUZA", grade: "1ºH" },
+  { number: "38", name: "MATHEUS CAVALCANTE LISBOA", grade: "1ºH" },
+  { number: "40", name: "MURILLO SOUZA RODRIGUES DOS SANTOS", grade: "1ºH" },
+  { number: "45", name: "PEDRO HENRIQUE MAURICIO DA SILVA CHAGAS", grade: "1ºH" },
+  { number: "48", name: "RHUAN LIMA OLIVEIRA", grade: "1ºH" },
+  { number: "49", name: "THAINA FIDELIS XAVIER DA SILVA", grade: "1ºH" },
+  { number: "54", name: "DENIS CASTRO DURVALDO", grade: "1ºH" },
+  { number: "56", name: "ISAAC LEMOS SANTOS", grade: "1ºH" },
+  { number: "57", name: "EMILLY EDUARDA BONIFACIO DE AMORIM CORREA", grade: "1ºH" },
+  { number: "59", name: "LEONARDO ABADE DA SILVA DANTAS", grade: "1ºH" },
+  { number: "62", name: "PYETRA GOMES MARTINS", grade: "1ºH" },
+  { number: "64", name: "CARLOS EDUARDO MARTINS DA SILVA", grade: "1ºH" },
+  { number: "66", name: "STELLA MARTINS DA SILVA", grade: "1ºH" },
+  { number: "67", name: "DYESSICA MAYARA DOS SANTOS GOMES", grade: "1ºH" },
+  { number: "68", name: "LARISSA DE LOURDES DOS SANTOS", grade: "1ºH" },
+  { number: "70", name: "GUSTAVO RODRIGUES DE SOUZA", grade: "1ºH" },
+  { number: "72", name: "NAYARA BARROS DE MORAIS", grade: "1ºH" },
+  { number: "73", name: "VITÓRIA SANTOS TEIXEIRA", grade: "1ºH" },
+  { number: "75", name: "JOÃO PAULO RODRIGUES DE SOUZA FILHO", grade: "1ºH" },
+  { number: "76", name: "MARIA EDUARDA DE OLIVEIRA RODRIGUES", grade: "1ºH" },
+  { number: "77", name: "LUIZ HENRIQUE JESUS DOS SANTOS FABRICIO", grade: "1ºH" },
+  { number: "78", name: "EDUARDO CARRASCOSA PINTOR", grade: "1ºH" },
+  { number: "79", name: "GUILHERME DANIEL VELOSO DOS SANTOS", grade: "1ºH" },
+  { number: "80", name: "JOAO GABRIEL AMORIM TOBIAS", grade: "1ºH" },
+  { number: "81", name: "RIAN SANTOS MACHADO", grade: "1ºH" },
+  { number: "82", name: "JULIA ARAUJO DE LIMA", grade: "1ºH" },
+  { number: "83", name: "BRENDA ROSA DA SILVA", grade: "1ºH" },
+  { number: "84", name: "CAMILA APPOLINÁRIO", grade: "1ºH" },
+  { number: "85", name: "ARTHUR CASTRO SILVA", grade: "1ºH" },
+  { number: "86", name: "KAMILA NEVES BRITO", grade: "1ºH" }
+];
 
-        // Questões da atividade com respostas ofuscadas (mantidas do anexo)
-        const questions = [
-            {
-                id: 1,
-                text: "Analisando os estromatólitos, estruturas rochosas formadas por cianobactérias que representam os primeiros registros fósseis de vida na Terra, podemos inferir que esses organismos foram fundamentais para a evolução da biosfera. Considerando sua importância ecológica e evolutiva, qual alternativa descreve corretamente o impacto desses primeiros seres vivos no planeta?",
-                image:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjogRUaR1rTrmwBgBFKQouUEBY-fAFfRhLX3FK-TDlGY3KFqEmQqTO0WoZoryug4TQlujmrPuIhSQn-dCVGWhjcESQTyAKfRVSxbcxisl5pGP98-E_KC7tceLBoiYVyJkP41AlxX0FPtkkR0EZ-DyVld1qaD9fQDUoyMFJ8pxH8XY0VARQBC8torJE-ZurV/s570/Estromatolitos.JPG",
-                options: [
-                    { id: "a", text: "A. Foram os primeiros organismos a desenvolver um sistema de reprodução sexuada, aumentando a variabilidade genética.", image: "" },
-                    { id: "b", text: "B. Desenvolveram a capacidade de fotossíntese oxigênica, alterando significativamente a composição da atmosfera terrestre primitiva.", image: "" },
-                    { id: "c", text: "C. Criaram os primeiros ecossistemas complexos com diversidade de nichos ecológicos especializados.", image: "" },
-                    { id: "d", text: "D. Originaram as primeiras relações de simbiose que deram origem às células eucariontes.", image: "" },
-                    { id: "e", text: "E. Desenvolveram mecanismos de locomoção que permitiram a colonização de ambientes terrestres.", image: "" }
-                ],
-                correct: "b"
-            },
-            {
-                id: 2,
-                text: "Ao comparar células procariontes e eucariontes, observamos diferenças fundamentais em sua organização estrutural. Considerando a imagem que ilustra uma célula procarionte, qual das seguintes afirmações destaca corretamente uma característica exclusiva dessas células em relação às eucariontes?",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEghx-05Gbp-M0z_nvJIa62_-wqZzamnNTHzIvpgHZzYNSZrnEIRQ5LT1ETIjiCfK5Y42XW8JL8MDKQPOG9ZgffvTjYciIEg90blzaLmdzuSghMPjIK39U5dUGE8bc1QCZBgMSiDjgFMqHee1xDmpNb7ogsFlUsyeDDv6wxJTalxFs6skDZSvvUVQ4bKMfnE/s563/CelulaProcarionte.JPG",
-                options: [
-                    { id: "a", text: "A. Presença de um sistema de endomembranas que compartmentaliza as funções celulares.", image: "" },
-                    { id: "b", text: "B. Material genético organizado em cromossomos lineares dentro de um núcleo definido.", image: "" },
-                    { id: "c", text: "C. DNA associado a proteínas histônicas formando uma cromatina complexa.", image: "" },
-                    { id: "d", text: "D. Ausência de organelas membranosas como mitocôndrias e complexo golgiense.", image: "" },
-                    { id: "e", text: "E. Capacidade de realizar processos de endocitose e exocitose para transporte de macromoléculas.", image: "" }
-                ],
-                correct: "d"
-            },
-            {
-                id: 3,
-                text: "O processo de osmose, ilustrado na imagem, é fundamental para a manutenção do equilíbrio hídrico nas células. Em um experimento, células vegetais são colocadas em soluções com diferentes concentrações salinas. Qual das situações abaixo descreve corretamente o que ocorre quando essas células são transferidas para uma solução hipertônica?",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhba53uop4Oc4Xc_ZlO6SmNlRMulDyeXDUdiDEnYZolTcURAKa2xK11eLiAsijE1H2RLNUwLZJcsc-WaIs4lGd5FGfNoG6BCP-kzBaCvhs1hsK7fYx1I7dhTG7cx12Z0W_DxtU0P9LABjE9jsjTvklEqTQq9_FQTTPgJcq1aHgkr2B2AD2C7aIJhTj4RMK4/s571/Osmose.JPG",
-                options: [
-                    { id: "a", text: "A. A célula absorve água através das aquaporinas, tornando-se túrgida e aumentando a pressão de turgescência.", image: "" },
-                    { id: "b", text: "B. Ocorre plasmólise, com saída de água do vacúolo para o meio extracelular, resultando em retração do protoplasto.", image: "" },
-                    { id: "c", text: "C. A célula mantém seu volume constante devido à ação da bomba de sódio e potássio que regula o fluxo iônico.", image: "" },
-                    { id: "d", text: "D. Há entrada de solutos através de transporte ativo, equilibrando as concentrações intra e extracelulares.", image: "" },
-                    { id: "e", text: "E. Ocorre citólise com rompimento da membrana plasmática devido ao excessivo influxo de água.", image: "" }
-                ],
-                correct: "b"
-            },
-            {
-                id: 4,
-                text: "A membrana plasmática, com sua estrutura de bicamada lipídica e proteínas integradas, exerce funções essenciais para a célula. Observando a imagem que ilustra essa estrutura, qual das alternativas descreve corretamente o papel das proteínas de membrana no processo de reconhecimento celular?",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhUdmEe8evlk4iS-aT47qNzm178r8U937Cc3YKI_-_FCiwN2Vzkfy_T9tu0wHZ2L0hcmXnDJMvyu8YgYCoYHM_w_NjbtwLywss6o2QDKIPRvksS4VfXeGRccCxAu_4BJSzV7VnMwaB7TMUb5tQXWjVRMAtiWg7l_oCNqrS4PAGpqc0v8fqfJ_GFH7OivjSR/s320/x9kKDe.gif",
-                options: [
-                    { id: "a", text: "A. Atuam como receptores específicos que identificam moléculas sinalizadoras do ambiente extracelular.", image: "" },
-                    { id: "b", text: "B. Formam poros hidrofílicos que permitem a passagem seletiva de íons por difusão facilitada.", image: "" },
-                    { id: "c", text: "C. Catalisam reações químicas que produzem energia para os processos de transporte ativo.", image: "" },
-                    { id: "d", text: "D. Mantêm a fluidez da membrana através da biossíntese contínua de fosfolipídios.", image: "" },
-                    { id: "e", text: "E. Estabilizam a bicamada lipídica impedindo a fusão com outras membranas celulares.", image: "" }
-                ],
-                correct: "a"
-            },
-            {
-                id: 5,
-                text: "O transporte ativo através da membrana plasmática, ilustrado na imagem, é um processo fundamental para a manutenção de gradientes iônicos essenciais para a função celular. Considerando as características desse mecanismo, qual das alternativas explica corretamente por que neurônios dependem desse tipo de transporte para gerar potenciais de ação?",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjToI2V5EkUOO3kuch27DgRw3_FqFW6Wd0_-rj3WHiH43l_-YAjqMsb1NVoIdCpbg-yYIy0U8y5f99TfEgTaUqoe0IzZ5YOqWvOX41JbvwmTacffGPywtdtwCYUaQx69mqi5CEEVHS8raGzGr8ZTxWC_qBHijrV6gSngEliYbGckciLNGnnARN5HVaLxg7p/s532/transporteativo.JPG",
-                options: [
-                    { id: "a", text: "A. Porque permite a difusão rápida de neurotransmissores através da sinapse neural.", image: "" },
-                    { id: "b", text: "B. Porque mantém as concentrações diferenciais de sódio e potássio necessárias para a despolarização.", image: "" },
-                    { id: "c", text: "C. Porque facilita a entrada de glucose por cotransporte para suprir as demandas energéticas.", image: "" },
-                    { id: "d", text: "D. Porque regula o pH intracelular através do transporte de íons hidrogênio.", image: "" },
-                    { id: "e", text: "E. Porque permite a exocitose de vesículas sinápticas contendo neurotransmissores.", image: "" }
-                ],
-                correct: "b"
-            },
-            {
-                id: 6,
-                text: "As cianobactérias, como as representadas na imagem, são organismos procariontes com grande importância ecológica. Considerando suas características fisiológicas, qual das alternativas descreve corretamente uma adaptação que lhes permitiu colonizar ambientes aquáticos diversificados?",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUlQYZwX9TEnAdc1tp1C3xgXUw1_iMfK58J3qsJUzqDIZsa2sPc33O4mTe16Nl6pMm8y7fJM10gmtViRFDUoboi02Pqg6d9drGVUmi9CMk9pHqnTOjmIQR00chOz4WTwVE0N5wAdQwvoS5O8pmwJZ478C7fYNl7OBfX8pqK6rCMxqSLyMmX8boodB-64F-/s563/Cianobacterias.JPG",
-                options: [
-                    { id: "a", text: "A. Desenvolvimento de vacúolos contráteis para regular a pressão osmótica em água doce.", image: "" },
-                    { id: "b", text: "B. Presença de heterocistos especializados na fixação de nitrogênio atmosférico.", image: "" },
-                    { id: "c", text: "C. Capacidade de formar cistos de resistência para sobreviver em condições desfavoráveis.", image: "" },
-                    { id: "d", text: "D. Síntese de pigmentos acessórios que ampliam o espectro de luz utilizada na fotossíntese.", image: "" },
-                    { id: "e", text: "E. Formação de colônias que protegem contra a predação e a dessecação.", image: "" }
-                ],
-                correct: "b"
-            },
-            {
-                id: 7,
-                text: "A difusão simples, ilustrada na imagem, é um processo físico fundamental para o transporte de substâncias através da membrana plasmática. Em um experimento, observa-se que a taxa de difusão do oxigênio através de uma membrana artificial é significativamente maior que a da glicose. Qual fator explica melhor essa diferença?",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXyYJEd-R9ZyY7nWWlq1IS_I-E3o-eEnWyxIO-OOaBS7tkjgYmxlVAKrXBhgJxGKuYXhQCUc2oCvytjPVvYodyPWHMyXa9n7vBNDAcBks23JC4CcHaP3cZE-vRIqU0rMtebUyAhOyRT4Bs16rwgZsTM9jcdCO9BgAuyTFXdQMcoVG1NyC7T_zZzren5NT/s524/DifusaoSimples.JPG",
-                options: [
-                    { id: "a", text: "A. A glicose possui maior solubilidade em lipídios que o oxigênio, facilitando sua passagem.", image: "" },
-                    { id: "b", text: "B. O oxigênio é uma molécula apolar e pequena, difundindo-se facilmente pela bicamada lipídica.", image: "" },
-                    { id: "c", text: "C. A glicose utiliza proteínas carreadoras específicas que aceleram seu transporte.", image: "" },
-                    { id: "d", text: "D. O oxigênio sofre dissociação iônica que aumenta sua permeabilidade através da membrana.", image: "" },
-                    { id: "e", text: "E. A glicose é transportada por vesículas que se fundem com a membrana plasmática.", image: "" }
-                ],
-                correct: "b"
-            },
-            {
-                id: 8,
-                text: "A imagem que representa diferentes tipos de células do corpo humano ilustra a diversidade morfológica e funcional das células eucariontes. Considerando as características dos seres vivos, qual das alternativas identifica corretamente um aspecto da organização celular que é comum a todos os organismos vivos?",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAjFhqKm0IO7DUaYh1iKEZZzSot5fazg6xnCWVo0dPImuv14akfkl0R8NKTMuRohw35Y2C8U5Y0V3G-hdNzanM0-YA7cmF72Zkmtk0_hdv1e5UfP4J2TcKlKrMnpH8gOyBzyVn2D3yrRlqd0RdD5TVfNL2Jyv7SmivYGNxs1vh2yDCLe4aL7f5JGC5VQF6/s561/DiferentesCelulas.JPG",
-                options: [
-                    { id: "a", text: "A. Presença de sistemas de organelas membranosas especializadas em diferentes funções.", image: "" },
-                    { id: "b", text: "B. Capacidade de responder a estímulos ambientais através de mecanismos de transdução de sinais.", image: "" },
-                    { id: "c", text: "C. Existência de um citoesqueleto complexo composto por microtúbulos, microfilamentos e filamentos intermediários.", image: "" },
-                    { id: "d", text: "D. Presença de um genoma organizado em cromossomos lineares dentro de um núcleo definido.", image: "" },
-                    { id: "e", text: "E. Capacidade de realizar divisão celular por mitose com formação de fuso mitótico.", image: "" }
-                ],
-                correct: "b"
-            },
-            {
-                id: 9,
-                text: "A imagem que ilustra moléculas de DNA destaca a importância do material genético para a vida. Considerando a organização do DNA em células procariontes, qual das seguintes características é exclusiva dessas células em relação ao material genético?",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDzqkW6cudagXwDAPWMsP0GR2VOqbO2qYZTgvc59CW-CERVfKa1VXoV9KPpXtmWtdUmoDaVGujPfkKATgHNQEial43FA1TTF01Aq4OGe1YGR_K7zFg3g6nqGtkqZvosvu_b_1iC3JWks4xwZBEdfxDncY1jtEMiEYFOOBWhxlXXyMI1ZmzriqhcTwnmld_/s600/The_Structure_of_DNA_GIF.gif",
-                options: [
-                    { id: "a", text: "A. Presença de íntrons e éxons que permitem o processamento alternativo do RNA mensageiro.", image: "" },
-                    { id: "b", text: "B. Associação com proteínas histônicas formando nucleossomos que compactam a cromatina.", image: "" },
-                    { id: "c", text: "C. Organização em cromossomos lineares com telômeros nas extremidades.", image: "" },
-                    { id: "d", text: "D. Localização em uma região denominada nucleoide, sem delimitação por membrana nuclear.", image: "" },
-                    { id: "e", text: "E. Replicação semiconservativa que ocorre em múltiplas origens de replicação ao longo do cromossomo.", image: "" }
-                ],
-                correct: "d"
-            },
-            {
-                id: 10,
-                text: "A bomba de sódio e potássio, representada na imagem, é um exemplo clássico de transporte ativo. Considerando seu mecanismo de ação, qual das alternativas descreve corretamente como esse sistema contribui para a manutenção do potencial de repouso nas células excitáveis?",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtdm7A7sglkcdChCX_dofwG36HZx_jexyPoBirqSNYEZ57HrAvkvLTagwFD4EJmT7i3G_1gUQapNw9UosV7KCbQ5HI3kRz676ynHr1eghsAU1-tz4BHvBCZhFh6SXxAAegNGvUMXcsdiVW7i4sAOv_OI2xfkPMeCG61qJnLPb56F2QwEn_Mwj6nUMPKohe/s400/v0wDge.gif",
-                options: [
-                    { id: "a", text: "A. Promove a entrada de sódio e saída de potássio, gerando um potencial de membrana positivo no interior celular.", image: "" },
-                    { id: "b", text: "B. Estabelece um gradiente eletroquímico com alta concentração de potássio no interior e sódio no exterior da célula.", image: "" },
-                    { id: "c", text: "C. Mantém equilíbrio iônico através da troca passiva de sódio e potássio de acordo com seus gradientes de concentração.", image: "" },
-                    { id: "d", text: "D. Utiliza a energia do ATP para transportar três íons de potássio para fora e dois íons de sódio para dentro da célula.", image: "" },
-                    { id: "e", text: "E. Atua como canal iônico regulado por voltagem que se abre durante a despolarização da membrana.", image: "" }
-                ],
-                correct: "b"
-            }
-        ];
+/* ===========================================================
+   INICIALIZAÇÃO DA PÁGINA
+   =========================================================== */
+let submitted = false;
 
-        // Variável para controlar se o formulário já foi enviado
-        let submitted = false;
+document.addEventListener("DOMContentLoaded", () => {
+  const studentSelect = document.getElementById("student-name");
+  const questionsContainer = document.getElementById("questions-container");
 
-        // Inicialização da página
-        document.addEventListener('DOMContentLoaded', function() {
-            // Preencher dropdown de alunos
-            const studentSelect = document.getElementById('student-name');
-            students.forEach((student, index) => {
-                const option = document.createElement('option');
-                option.value = student.number;
-                option.textContent = student.name;
-                studentSelect.appendChild(option);
-            });
+  // Popula lista de alunos
+  students.forEach(stu => {
+    const opt = document.createElement("option");
+    opt.value = stu.number;
+    opt.textContent = stu.name;
+    studentSelect.appendChild(opt);
+  });
 
-            // Preencher questões
-            const questionsContainer = document.getElementById('questions-container');
-            questions.forEach(question => {
-                const questionElement = document.createElement('div');
-                questionElement.className = 'question';
-                
-                let questionHTML = `
-                    <div class="question-number">Questão ${question.id}</div>
-                    <div class="question-text">${question.text}</div>
-                `;
-                
-                if (question.image) {
-                    questionHTML += `<img src="${question.image}" alt="Imagem da questão ${question.id}" class="question-image">`;
-                }
-                
-                questionHTML += `<div class="options">`;
-                
-                question.options.forEach(option => {
-                    questionHTML += `
-                        <div class="option">
-                            <input type="radio" id="q${question.id}_${option.id}" name="q${question.id}" value="${option.id}">
-                            <label for="q${question.id}_${option.id}" class="option-text">${option.text}</label>
-                        </div>
-                    `;
-                    
-                    if (option.image) {
-                        questionHTML += `<img src="${option.image}" alt="Imagem da opção ${option.id}" class="option-image">`;
-                    }
-                });
-                
-                questionHTML += `</div>`;
-                questionElement.innerHTML = questionHTML;
-                questionsContainer.appendChild(questionElement);
-            });
+  // Define data atual
+  document.getElementById("activity-date").value = new Date().toISOString().split("T")[0];
 
-            // Configurar data atual como padrão
-            const today = new Date();
-            const formattedDate = today.toISOString().split('T')[0];
-            document.getElementById('activity-date').value = formattedDate;
+  // Atualiza número e turma ao selecionar aluno
+  studentSelect.addEventListener("change", e => {
+    const stu = students.find(s => s.number === e.target.value);
+    document.getElementById("student-number").value = stu ? stu.number : "";
+    document.getElementById("student-grade").value = stu ? stu.grade : "";
+  });
 
-            // Event listener para seleção de aluno
-            studentSelect.addEventListener('change', function() {
-                const selectedNumber = this.value;
-                const selectedStudent = students.find(student => student.number === selectedNumber);
-                
-                if (selectedStudent) {
-                    document.getElementById('student-number').value = selectedStudent.number;
-                    document.getElementById('student-grade').value = selectedStudent.grade;
-                } else {
-                    document.getElementById('student-number').value = '';
-                    document.getElementById('student-grade').value = '';
-                }
-            });
+  // Atualiza barra de progresso
+  const updateProgress = () => {
+    const total = questions.length;
+    const answered = questions.filter(q => document.querySelector(`input[name="q${q.id}"]:checked`)).length;
+    const percent = (answered / total) * 100;
+    document.getElementById("progress-bar").style.width = `${percent}%`;
+    document.getElementById("progress-text").textContent = `${Math.round(percent)}% concluído`;
+  };
 
-            // Event listener para atualizar progresso
-            function updateProgress() {
-                const totalQuestions = questions.length;
-                let answered = 0;
-                
-                questions.forEach(question => {
-                    const selectedOption = document.querySelector(`input[name="q${question.id}"]:checked`);
-                    if (selectedOption) {
-                        answered++;
-                    }
-                });
-                
-                const progress = (answered / totalQuestions) * 100;
-                document.getElementById('progress-bar').style.width = `${progress}%`;
-                document.getElementById('progress-text').textContent = `${Math.round(progress)}% concluído`;
-            }
-            
-            // Adicionar event listeners para as opções de resposta
-            questions.forEach(question => {
-                const radioButtons = document.querySelectorAll(`input[name="q${question.id}"]`);
-                radioButtons.forEach(radio => {
-                    radio.addEventListener('change', updateProgress);
-                });
-            });
+  // Preenche as questões dinamicamente
+  questions.forEach(q => {
+    const div = document.createElement("div");
+    div.className = "question";
+    div.innerHTML = `
+      <div class="question-number">Questão ${q.id}</div>
+      <div class="question-text">${q.text}</div>
+      ${q.image ? `<img src="${q.image}" alt="Questão ${q.id}" class="question-image">` : ""}
+      <div class="options">
+        ${q.options.map(o => `
+          <div class="option">
+            <input type="radio" id="q${q.id}_${o.id}" name="q${q.id}" value="${o.id}">
+            <label for="q${q.id}_${o.id}" class="option-text">${o.text}</label>
+          </div>
+        `).join("")}
+      </div>`;
+    questionsContainer.appendChild(div);
+  });
 
-            // Event listener para botão de limpar
-            document.getElementById('clear-btn').addEventListener('click', function() {
-                // Limpar todas as seleções de rádio
-                const radioButtons = document.querySelectorAll('input[type="radio"]');
-                radioButtons.forEach(radio => {
-                    radio.checked = false;
-                });
-                
-                // Resetar progresso
-                updateProgress();
-            });
+  // Escuta mudanças nas respostas
+  questions.forEach(q => {
+    document.querySelectorAll(`input[name="q${q.id}"]`).forEach(r => r.addEventListener("change", updateProgress));
+  });
 
-            // Event listener para botão de enviar (CORRIGIDO)
-            document.getElementById('submit-btn').addEventListener('click', function() {
-                // Verificar se já foi enviado
-                if (submitted) {
-                    alert('As respostas já foram enviadas. Você não pode enviar novamente.');
-                    return;
-                }
-                
-                const selectedStudentNumber = document.getElementById('student-name').value; // Valor do select (número do aluno)
-                const selectedStudent = students.find(student => student.number === selectedStudentNumber);
-                
-                // Validação de seleção de aluno
-                if (!selectedStudent) {
-                    alert('Por favor, selecione seu nome na lista.');
-                    return;
-                }
-                
-                const studentName = selectedStudent.name; // Nome completo
-                const studentGrade = selectedStudent.grade; // Turma (nome da aba)
-                const activityDate = document.getElementById('activity-date').value;
-                
-                // Validar se a data foi preenchida
-                if (!activityDate) {
-                    alert('Por favor, preencha a data da atividade.');
-                    return;
-                }
-                
-                // Verificar se todas as questões foram respondidas
-                let allAnswered = true;
-                questions.forEach(question => {
-                    const selectedOption = document.querySelector(`input[name="q${question.id}"]:checked`);
-                    if (!selectedOption) {
-                        allAnswered = false;
-                    }
-                });
-                
-                if (!allAnswered) {
-                    const confirmSubmit = confirm('Você não respondeu todas as questões. Deseja enviar mesmo assim?');
-                    if (!confirmSubmit) {
-                        return;
-                    }
-                }
-                
-                // Calcular a nota
-                let score = 0;
-                questions.forEach(question => {
-                    const selectedOption = document.querySelector(`input[name="q${question.id}"]:checked`);
-                    if (selectedOption && selectedOption.value === question.correct) {
-                        score++;
-                    }
-                });
-                
-                const finalScore = (score / questions.length) * 10;
-                
-                // Marcar como enviado e desabilitar o botão
-                submitted = true;
-                document.getElementById('submit-btn').disabled = true;
-                document.getElementById('submit-btn').innerHTML = `
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                    </svg>
-                    Respostas Enviadas
-                `;
-                
-                // Enviar para o Google Sheets
-                submitToGoogleSheets(selectedStudentNumber, studentName, finalScore, activityDate, studentGrade);
-            });
+  document.getElementById("clear-btn").addEventListener("click", () => {
+    document.querySelectorAll('input[type="radio"]').forEach(r => (r.checked = false));
+    updateProgress();
+  });
 
-            // Inicializar barra de progresso
-            updateProgress();
-        });
+  // Envio das respostas
+  document.getElementById("submit-btn").addEventListener("click", async () => {
+    if (submitted) {
+      alert("As respostas já foram enviadas.");
+      return;
+    }
 
-        // Função para enviar dados para o Google Sheets (CORRIGIDA)
-        function submitToGoogleSheets(studentNumber, studentName, score, date, sheetName) {
-            // URL do Web App do Google Apps Script
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbwWX4yAxknsjLiXkun0YYcuU4ANxvxLSEPHzm7PXhFgcmgemK5xLmpE2AXGxgyGc7D2/exec';
-            
-            const data = {
-                studentNumber: studentNumber,
-                studentName: studentName,
-                score: score.toFixed(1), // Garante que a nota é enviada formatada
-                date: date,
-                sheetName: sheetName, // CORREÇÃO: Envia o nome da aba (turma) correto
-                range: 'T4:T' // Mantido, mas não usado no App Script corrigido
-            };
-            
-            fetch(scriptURL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            })
-            .then(() => {
-                alert(`Respostas enviadas com sucesso! Sua nota: ${score.toFixed(1)}`);
-            })
-            .catch(error => {
-                console.error('Erro ao enviar:', error);
-                alert('Erro ao enviar respostas. Tente novamente.');
-            });
-        }
-    </script>
+    const stuNum = studentSelect.value;
+    const stu = students.find(s => s.number === stuNum);
+    if (!stu) return alert("Selecione seu nome na lista.");
+
+    const date = document.getElementById("activity-date").value;
+    if (!date) return alert("Preencha a data da atividade.");
+
+    // Verifica respostas
+    let score = 0;
+    const unanswered = [];
+    questions.forEach(q => {
+      const opt = document.querySelector(`input[name="q${q.id}"]:checked`);
+      if (opt?.value === q.correct) score++;
+      if (!opt) unanswered.push(q.id);
+    });
+
+    if (unanswered.length > 0 && !confirm(`Você deixou ${unanswered.length} questão(ões) em branco. Deseja enviar assim mesmo?`)) {
+      return;
+    }
+
+    const finalScore = (score / questions.length) * 10;
+
+    try {
+      const ok = await submitToGoogleSheets(stu.name, finalScore, 1);
+      if (!ok) throw new Error("Falha ao registrar no servidor.");
+
+      submitted = true;
+      const btn = document.getElementById("submit-btn");
+      btn.disabled = true;
+      btn.textContent = "Respostas Enviadas";
+      alert(`Enviado com sucesso!\nNota: ${finalScore.toFixed(1)}`);
+    } catch (err) {
+      console.error(err);
+      alert(`Erro ao enviar respostas: ${err.message}`);
+      submitted = false; // Permite nova tentativa
+    }
+  });
+
+  updateProgress();
+});
+
+/* ===========================================================
+   ENVIO AO GOOGLE SHEETS
+   =========================================================== */
+async function submitToGoogleSheets(studentName, score, activity) {
+  const url = "https://script.google.com/macros/s/AKfycbwWX4yAxknsjLiXkun0YYcuU4ANxvxLSEPHzm7PXhFgcmgemK5xLmpE2AXGxgyGc7D2/exec";
+  const payload = { studentName, score, activity };
+
+  const resp = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+
+  if (!resp.ok) {
+    const msg = await resp.text();
+    throw new Error(`Erro HTTP ${resp.status}: ${msg}`);
+  }
+
+  const data = await resp.json().catch(() => ({}));
+  if (!data.success) throw new Error(data.message || "Falha desconhecida no servidor.");
+  return true;
+}
+</script>
+
 </body>
 </html>
+
 
 
 
