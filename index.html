@@ -634,7 +634,7 @@ document.addEventListener("DOMContentLoaded", () => {
    ENVIO AO GOOGLE SHEETS
    =========================================================== */
 async function submitToGoogleSheets(studentName, score, activity) {
-  const url = "https://script.google.com/macros/s/AKfycbwJRoj_nBTFDIjUc5rGqJ0xHNOcnGSnIDlfDPLgarDng3VVaEx3WCUyQC-EOv7pknA5/exec";
+  const url = "https://script.google.com/macros/s/AKfycbysiYO-IaqVNmf1FsNeFdU9u7vF3UI7MEwNZNbvDpM9UL5d45zO-HjkTflLxB6oN_XJ/exec";
   const payload = { studentName, score, activity };
 
   const resp = await fetch(url, {
@@ -656,6 +656,7 @@ async function submitToGoogleSheets(studentName, score, activity) {
 
 </body>
 </html>
+
 
 
 
