@@ -68,14 +68,10 @@
 
         .student-info {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 2fr 0.5fr 0.7fr 1fr;
             gap: 15px;
             margin-bottom: 20px;
             align-items: end;
-        }
-
-        .student-row {
-            display: contents;
         }
 
         .info-item {
@@ -198,6 +194,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: block;
+            border: 2px solid var(--gray-light);
         }
 
         .options {
@@ -228,6 +225,10 @@
         .option-text {
             flex: 1;
             font-size: 1rem;
+        }
+
+        .option-letter {
+            font-weight: 700;
         }
 
         .option-image {
@@ -627,7 +628,7 @@
                 options: [
                     { id: "a", text: "A. Presença de íntrons e éxons que permitem o processamento alternativo do RNA mensageiro.", image: "" },
                     { id: "b", text: "B. Associação com proteínas histônicas formando nucleossomos que compactam a cromatina.", image: "" },
-                    { id: "c", text: "C. Organização em cromossomos lineares con telômeros nas extremidades.", image: "" },
+                    { id: "c", text: "C. Organização em cromossomos lineares com telômeros nas extremidades.", image: "" },
                     { id: "d", text: "D. Localização em uma região denominada nucleoide, sem delimitação por membrana nuclear.", image: "" },
                     { id: "e", text: "E. Replicação semiconservativa que ocorre em múltiplas origens de replicação ao longo do cromossomo.", image: "" }
                 ],
@@ -677,10 +678,17 @@
                 questionHTML += `<div class="options">`;
                 
                 question.options.forEach(option => {
+                    // Extrair a letra da alternativa para aplicar negrito
+                    const optionParts = option.text.split('. ');
+                    const optionLetter = optionParts[0];
+                    const optionText = optionParts.slice(1).join('. ');
+                    
                     questionHTML += `
                         <div class="option">
                             <input type="radio" id="q${question.id}_${option.id}" name="q${question.id}" value="${option.id}">
-                            <label for="q${question.id}_${option.id}" class="option-text">${option.text}</label>
+                            <label for="q${question.id}_${option.id}" class="option-text">
+                                <span class="option-letter">${optionLetter}.</span> ${optionText}
+                            </label>
                         </div>
                     `;
                     
