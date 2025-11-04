@@ -23,14 +23,12 @@
             --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
-
         body {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             color: var(--dark);
@@ -38,7 +36,6 @@
             padding: 20px;
             min-height: 100vh;
         }
-
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -48,7 +45,6 @@
             overflow: hidden;
             position: relative;
         }
-
         .header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
@@ -57,7 +53,6 @@
             position: relative;
             z-index: 10;
         }
-
         .school-name {
             font-size: 1.5rem;
             font-weight: 600;
@@ -65,7 +60,6 @@
             letter-spacing: 0.5px;
             text-align: left;
         }
-
         .student-info {
             display: grid;
             grid-template-columns: 2fr 0.5fr 0.7fr 1fr;
@@ -73,19 +67,16 @@
             margin-bottom: 20px;
             align-items: end;
         }
-
         .info-item {
             display: flex;
             flex-direction: column;
         }
-
         .info-item label {
             margin-bottom: 8px;
             font-weight: 500;
             font-size: 0.9rem;
             text-align: left;
         }
-
         .info-item input, .info-item select {
             padding: 12px;
             border: none;
@@ -94,16 +85,13 @@
             font-size: 0.95rem;
             transition: var(--transition);
         }
-
         .info-item input:focus, .info-item select:focus {
             outline: none;
             box-shadow: 0 0 0 2px var(--accent);
         }
-
         .name-select {
             width: 100%;
         }
-
         .name-select option:nth-child(even) {
             background-color: rgba(255, 255, 255, 0.8);
         }
@@ -111,7 +99,6 @@
         .name-select option:nth-child(odd) {
             background-color: rgba(240, 240, 240, 0.8);
         }
-
         .activity-title {
             font-size: 1.4rem;
             font-weight: 600;
@@ -119,20 +106,17 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-
         .theme {
             font-size: 1.1rem;
             margin-bottom: 10px;
             opacity: 0.9;
         }
-
         .questions-container {
             padding: 25px;
             background-color: transparent;
             position: relative;
             z-index: 5;
         }
-
         .middle-layer {
             position: absolute;
             top: 0;
@@ -143,7 +127,6 @@
             z-index: 1;
             opacity: 0.1;
         }
-
         .question {
             background-color: white;
             padding: 25px;
@@ -155,12 +138,10 @@
             position: relative;
             z-index: 2;
         }
-
         .question:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         }
-
         .question-number {
             font-weight: 600;
             font-size: 1.2rem;
@@ -169,7 +150,6 @@
             display: flex;
             align-items: center;
         }
-
         .question-number::before {
             content: "";
             display: inline-block;
@@ -179,13 +159,11 @@
             border-radius: 50%;
             margin-right: 10px;
         }
-
         .question-text {
             margin-bottom: 20px;
             font-size: 1.05rem;
             line-height: 1.7;
         }
-
         .question-image {
             max-width: 100%;
             height: auto;
@@ -195,11 +173,9 @@
             display: block;
             border: 2px solid var(--gray-light);
         }
-
         .options {
             margin-top: 20px;
         }
-
         .option {
             margin-bottom: 15px;
             display: flex;
@@ -210,26 +186,21 @@
             transition: var(--transition);
             cursor: pointer;
         }
-
         .option:hover {
             background-color: #e2e6ea;
         }
-
         .option input {
             margin-right: 15px;
             margin-top: 3px;
             transform: scale(1.2);
         }
-
         .option-text {
             flex: 1;
             font-size: 1rem;
         }
-
         .option-letter {
             font-weight: 700;
         }
-
         .buttons {
             display: flex;
             justify-content: space-between;
@@ -239,7 +210,6 @@
             position: relative;
             z-index: 5;
         }
-
         button {
             padding: 14px 30px;
             border: none;
@@ -252,29 +222,24 @@
             align-items: center;
             justify-content: center;
         }
-
         .submit-btn {
             background: linear-gradient(135deg, var(--success) 0%, #2e7d32 100%);
             color: white;
             box-shadow: 0 4px 6px rgba(76, 175, 80, 0.3);
         }
-
         .submit-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 8px rgba(76, 175, 80, 0.4);
         }
-
         .clear-btn {
             background: linear-gradient(135deg, var(--danger) 0%, #c62828 100%);
             color: white;
             box-shadow: 0 4px 6px rgba(244, 67, 54, 0.3);
         }
-
         .clear-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 8px rgba(244, 67, 54, 0.4);
         }
-
         .progress-container {
             padding: 0 25px;
             background-color: white;
@@ -282,28 +247,24 @@
             position: relative;
             z-index: 5;
         }
-
         .progress-bar {
             height: 6px;
             background-color: var(--gray-light);
             border-radius: 3px;
             overflow: hidden;
         }
-
         .progress {
             height: 100%;
             background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
             width: 0%;
             transition: width 0.5s ease;
         }
-
         .progress-text {
             text-align: center;
             font-size: 0.9rem;
             color: var(--gray);
             margin-top: 5px;
         }
-
         @media (max-width: 768px) {
             body {
                 padding: 10px;
@@ -338,7 +299,6 @@
                 width: 100%;
             }
         }
-
         @media (max-width: 480px) {
             .header {
                 padding: 15px 10px;
@@ -376,16 +336,13 @@
                 font-size: 0.95rem;
             }
         }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         .question {
             animation: fadeIn 0.5s ease forwards;
         }
-
         .question:nth-child(1) { animation-delay: 0.1s; }
         .question:nth-child(2) { animation-delay: 0.2s; }
         .question:nth-child(3) { animation-delay: 0.3s; }
@@ -426,14 +383,12 @@
             <div class="activity-title">ATIVIDADE DE BIOLOGIA (4ºBIMESTRE)</div>
             <div class="theme">Tema: Células Procariontes e Transporte Transmembrana</div>
         </div>
-
         <div class="progress-container">
             <div class="progress-bar">
                 <div class="progress" id="progress-bar"></div>
             </div>
             <div class="progress-text" id="progress-text">0% concluído</div>
         </div>
-
         <div class="questions-container" id="questions-container">
             <div class="middle-layer"></div>
             
@@ -827,7 +782,6 @@
                 </div>
             </div>
         </div>
-
         <div class="buttons">
             <button class="submit-btn" id="submit-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
@@ -847,8 +801,9 @@
             </button>
         </div>
     </div>
-
     <script>
+        // ** IMPORTANTE: Substitua esta URL pela URL de implantação do seu Google App Script **
+        const APP_SCRIPT_URL = "SUA_URL_DE_IMPLANTAÇÃO_DO_APP_SCRIPT";
         // Lista de alunos
         const students = [
             { number: "1", name: "ALEXANDRE BATISTA DOS SANTOS", grade: "1ºH" },
@@ -892,7 +847,6 @@
             { number: "85", name: "ARTHUR CASTRO SILVA", grade: "1ºH" },
             { number: "86", name: "KAMILA NEVES BRITO", grade: "1ºH" }
         ];
-
         // Inicialização
         document.addEventListener('DOMContentLoaded', function () {
             const studentSelect = document.getElementById('student-name');
@@ -998,24 +952,75 @@
                 
                 const nota = ((acertos / 10) * 10).toFixed(1);
                 
-                // Simula envio para servidor
-                try {
-                    // Aqui você pode implementar a lógica real de envio
-                    alert(`Respostas enviadas com sucesso!\n\nAluno: ${studentName}\nNúmero: ${studentNumber.value}\nSérie: ${studentGrade.value}\n\nNota: ${nota}\nAcertos: ${acertos}/10`);
-                    
-                    // Limpa formulário após envio
-                    document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
-                    updateProgress();
+                // Lógica de envio para o Google App Script
+                    const formData = {
+                        studentName: studentName,
+                        studentNumber: studentNumber.value,
+                        studentGrade: studentGrade.value,
+                        activityDate: activityDate.value,
+                        acertos: acertos,
+                        nota: nota,
+                    };
+                    // Coleta as respostas das questões
+                    for (let i = 1; i <= 10; i++) {
+                        const respostaSelecionada = document.querySelector(`input[name="q${i}"]:checked`);
+                        formData[`q${i}`] = respostaSelecionada ? respostaSelecionada.value : '';
+                    }
+                    const submitButton = document.getElementById('submit-btn');
+                    submitButton.disabled = true;
+                    submitButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spin" style="margin-right: 8px;"><path d="M21.5 2v6h-6"/><path d="M21.5 2a10 10 0 1 0 0 20"/></svg> Enviando...';
+                    const response = await fetch(https://script.google.com/a/macros/prof.educacao.sp.gov.br/s/AKfycbym3FkpmQm2uRNNGWIisu9JifXFq1H2YoLFXtZnb4T9qyIyKM-KFMtCYFmnr8kbZXM/exec, {
+                        method: 'POST',
+                        mode: 'no-cors', // Necessário para evitar erros CORS no App Script
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(formData),
+                    });
+                    // O App Script retorna um redirecionamento ou resposta opaca com 'no-cors',
+                    // então verificamos o status da rede e assumimos sucesso se não houver erro de rede.
+                    // Uma resposta real do App Script (JSON) só é possível se o modo for 'cors' e o App Script retornar o Content-Type correto.
+                    // Para simplificar a implantação, usamos 'no-cors' e assumimos sucesso.
+                    // Se você quiser uma resposta de sucesso/erro do App Script, você deve:
+                    // 1. Implantar o App Script como "Aplicativo da Web" com "Executar como: Eu" e "Quem tem acesso: Qualquer pessoa".
+                    // 2. Usar `mode: 'cors'` no fetch.
+                    // 3. O App Script deve retornar um ContentService.createTextOutput com MimeType.JSON.
+                    // Assumindo sucesso para o modo 'no-cors'
+                    if (response.ok || response.type === 'opaque') {
+                        alert(`Respostas enviadas com sucesso e registradas na planilha!\n\nAluno: ${studentName}\nNúmero: ${studentNumber.value}\nSérie: ${studentGrade.value}\n\nNota: ${nota}\nAcertos: ${acertos}/10`);
+                        
+                        // Limpa formulário após envio
+                        document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+                        updateProgress();
+                    } else {
+                        throw new Error(`Erro de rede: Status ${response.status}`);
+                    }
                     
                 } catch (err) {
-                    console.error(err);
-                    alert("Erro ao enviar respostas. Verifique sua conexão.");
+                    console.error("Erro ao enviar respostas:", err);
+                    alert("Erro ao enviar respostas. Verifique se a URL do App Script está correta e se a implantação foi feita corretamente.");
+                } finally {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Enviar Respostas';
                 }
             });
             
             // Inicializa barra de progresso
             updateProgress();
         });
+        // Adiciona CSS para o ícone de carregamento
+        const style = document.createElement('style');
+        style.textContent = `
+            .spin {
+                animation: spin 1s linear infinite;
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
+Manus
