@@ -649,7 +649,8 @@
             }
         ];
 
-        // ==========================
+        <script>
+// ==========================
 // ⚙️ INICIALIZAÇÃO
 // ==========================
 document.addEventListener('DOMContentLoaded', function () {
@@ -723,7 +724,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     const nota = ((acertos / questions.length) * 10).toFixed(1);
-    const atividade = 1; // você pode trocar conforme a atividade atual
+    const atividade = 1; // altere conforme a atividade
 
     // Envia para servidor Render
     try {
@@ -732,7 +733,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const res = await fetch("https://gas-proxy-render.onrender.com/enviar", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "text/plain" }, // ✅ CORRIGIDO
         body: JSON.stringify(payload)
       });
 
@@ -761,8 +762,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+
 </body>
 </html>
+
 
 
 
