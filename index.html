@@ -353,6 +353,14 @@
         .question:nth-child(8) { animation-delay: 0.8s; }
         .question:nth-child(9) { animation-delay: 0.9s; }
         .question:nth-child(10) { animation-delay: 1s; }
+        
+        .spin {
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
@@ -803,7 +811,8 @@
     </div>
     <script>
         // ** IMPORTANTE: Substitua esta URL pela URL de implantação do seu Google App Script **
-        const APP_SCRIPT_URL = "SUA_URL_DE_IMPLANTAÇÃO_DO_APP_SCRIPT";
+        const APP_SCRIPT_URL = "https://script.google.com/a/macros/prof.educacao.sp.gov.br/s/AKfycbym3FkpmQm2uRNNGWIisu9JifXFq1H2YoLFXtZnb4T9qyIyKM-KFMtCYFmnr8kbZXM/exec";
+        
         // Lista de alunos
         const students = [
             { number: "1", name: "ALEXANDRE BATISTA DOS SANTOS", grade: "1ºH" },
@@ -847,6 +856,7 @@
             { number: "85", name: "ARTHUR CASTRO SILVA", grade: "1ºH" },
             { number: "86", name: "KAMILA NEVES BRITO", grade: "1ºH" }
         ];
+
         // Inicialização
         document.addEventListener('DOMContentLoaded', function () {
             const studentSelect = document.getElementById('student-name');
@@ -953,6 +963,7 @@
                 const nota = ((acertos / 10) * 10).toFixed(1);
                 
                 // Lógica de envio para o Google App Script
+                try {
                     const formData = {
                         studentName: studentName,
                         studentNumber: studentNumber.value,
@@ -961,32 +972,26 @@
                         acertos: acertos,
                         nota: nota,
                     };
+                    
                     // Coleta as respostas das questões
                     for (let i = 1; i <= 10; i++) {
                         const respostaSelecionada = document.querySelector(`input[name="q${i}"]:checked`);
                         formData[`q${i}`] = respostaSelecionada ? respostaSelecionada.value : '';
                     }
+                    
                     const submitButton = document.getElementById('submit-btn');
                     submitButton.disabled = true;
                     submitButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spin" style="margin-right: 8px;"><path d="M21.5 2v6h-6"/><path d="M21.5 2a10 10 0 1 0 0 20"/></svg> Enviando...';
-                    const response = await fetch(https://script.google.com/a/macros/prof.educacao.sp.gov.br/s/AKfycbym3FkpmQm2uRNNGWIisu9JifXFq1H2YoLFXtZnb4T9qyIyKM-KFMtCYFmnr8kbZXM/exec, {
+                    
+                    const response = await fetch(APP_SCRIPT_URL, {
                         method: 'POST',
-                        mode: 'no-cors', // Necessário para evitar erros CORS no App Script
                         headers: {
                             'Content-Type': 'application/json',
                         },
-                        body: JSON.stringify(formData),
+                        body: JSON.stringify(formData)
                     });
-                    // O App Script retorna um redirecionamento ou resposta opaca com 'no-cors',
-                    // então verificamos o status da rede e assumimos sucesso se não houver erro de rede.
-                    // Uma resposta real do App Script (JSON) só é possível se o modo for 'cors' e o App Script retornar o Content-Type correto.
-                    // Para simplificar a implantação, usamos 'no-cors' e assumimos sucesso.
-                    // Se você quiser uma resposta de sucesso/erro do App Script, você deve:
-                    // 1. Implantar o App Script como "Aplicativo da Web" com "Executar como: Eu" e "Quem tem acesso: Qualquer pessoa".
-                    // 2. Usar `mode: 'cors'` no fetch.
-                    // 3. O App Script deve retornar um ContentService.createTextOutput com MimeType.JSON.
-                    // Assumindo sucesso para o modo 'no-cors'
-                    if (response.ok || response.type === 'opaque') {
+                    
+                    if (response.ok) {
                         alert(`Respostas enviadas com sucesso e registradas na planilha!\n\nAluno: ${studentName}\nNúmero: ${studentNumber.value}\nSérie: ${studentGrade.value}\n\nNota: ${nota}\nAcertos: ${acertos}/10`);
                         
                         // Limpa formulário após envio
@@ -1000,6 +1005,7 @@
                     console.error("Erro ao enviar respostas:", err);
                     alert("Erro ao enviar respostas. Verifique se a URL do App Script está correta e se a implantação foi feita corretamente.");
                 } finally {
+                    const submitButton = document.getElementById('submit-btn');
                     submitButton.disabled = false;
                     submitButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Enviar Respostas';
                 }
@@ -1008,19 +1014,6 @@
             // Inicializa barra de progresso
             updateProgress();
         });
-        // Adiciona CSS para o ícone de carregamento
-        const style = document.createElement('style');
-        style.textContent = `
-            .spin {
-                animation: spin 1s linear infinite;
-            }
-            @keyframes spin {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
-Manus
