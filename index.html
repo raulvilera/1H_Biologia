@@ -649,201 +649,121 @@
             }
         ];
 
-        // Inicialização da página
-        document.addEventListener('DOMContentLoaded', function() {
-            // Preencher dropdown de alunos
-            const studentSelect = document.getElementById('student-name');
-            students.forEach((student, index) => {
-                const option = document.createElement('option');
-                option.value = student.number;
-                option.textContent = student.name;
-                studentSelect.appendChild(option);
-            });
+        // ==========================
+// ⚙️ INICIALIZAÇÃO
+// ==========================
+document.addEventListener('DOMContentLoaded', function () {
+  const studentSelect = document.getElementById('student-name');
+  const questionsContainer = document.getElementById('questions-container');
 
-            // Preencher questões
-            const questionsContainer = document.getElementById('questions-container');
-            questions.forEach(question => {
-                const questionElement = document.createElement('div');
-                questionElement.className = 'question';
-                
-                let questionHTML = `
-                    <div class="question-number">Questão ${question.id}</div>
-                    <div class="question-text">${question.text}</div>
-                `;
-                
-                if (question.image) {
-                    questionHTML += `<img src="${question.image}" alt="Imagem da questão ${question.id}" class="question-image">`;
-                }
-                
-                questionHTML += `<div class="options">`;
-                
-                question.options.forEach(option => {
-                    // Extrair a letra da alternativa para aplicar negrito
-                    const optionParts = option.text.split('. ');
-                    const optionLetter = optionParts[0];
-                    const optionText = optionParts.slice(1).join('. ');
-                    
-                    questionHTML += `
-                        <div class="option">
-                            <input type="radio" id="q${question.id}_${option.id}" name="q${question.id}" value="${option.id}">
-                            <label for="q${question.id}_${option.id}" class="option-text">
-                                <span class="option-letter">${optionLetter}.</span> ${optionText}
-                            </label>
-                        </div>
-                    `;
-                    
-                    if (option.image) {
-                        questionHTML += `<img src="${option.image}" alt="Imagem da opção ${option.id}" class="option-image">`;
-                    }
-                });
-                
-                questionHTML += `</div>`;
-                questionElement.innerHTML = questionHTML;
-                questionsContainer.appendChild(questionElement);
-            });
+  // Preenche lista de alunos
+  students.forEach(student => {
+    const option = document.createElement('option');
+    option.value = student.name;
+    option.textContent = student.name;
+    studentSelect.appendChild(option);
+  });
 
-            // Configurar data atual como padrão
-            const today = new Date();
-            const formattedDate = today.toISOString().split('T')[0];
-            document.getElementById('activity-date').value = formattedDate;
+  // Renderiza questões
+  questions.forEach(question => {
+    const qDiv = document.createElement('div');
+    qDiv.className = 'question';
 
-            // Event listener para seleção de aluno
-            studentSelect.addEventListener('change', function() {
-                const selectedNumber = this.value;
-                const selectedStudent = students.find(student => student.number === selectedNumber);
-                
-                if (selectedStudent) {
-                    document.getElementById('student-number').value = selectedStudent.number;
-                    document.getElementById('student-grade').value = selectedStudent.grade;
-                } else {
-                    document.getElementById('student-number').value = '';
-                    document.getElementById('student-grade').value = '';
-                }
-            });
+    let html = `
+      <div class="question-number">Questão ${question.id}</div>
+      <div class="question-text">${question.text}</div>
+      ${question.image ? `<img src="${question.image}" class="question-image">` : ""}
+      <div class="options">
+    `;
 
-            // Event listener para atualizar progresso
-            function updateProgress() {
-                const totalQuestions = questions.length;
-                let answered = 0;
-                
-                questions.forEach(question => {
-                    const selectedOption = document.querySelector(`input[name="q${question.id}"]:checked`);
-                    if (selectedOption) {
-                        answered++;
-                    }
-                });
-                
-                const progress = (answered / totalQuestions) * 100;
-                document.getElementById('progress-bar').style.width = `${progress}%`;
-                document.getElementById('progress-text').textContent = `${Math.round(progress)}% concluído`;
-            }
-            
-            // Adicionar event listeners para as opções de resposta
-            questions.forEach(question => {
-                const radioButtons = document.querySelectorAll(`input[name="q${question.id}"]`);
-                radioButtons.forEach(radio => {
-                    radio.addEventListener('change', updateProgress);
-                });
-            });
+    question.options.forEach(opt => {
+      html += `
+        <div class="option">
+          <input type="radio" name="q${question.id}" value="${opt.id}" id="q${question.id}_${opt.id}">
+          <label for="q${question.id}_${opt.id}">
+            <strong>${opt.text}</strong>
+          </label>
+        </div>`;
+    });
 
-            // Event listener para botão de limpar
-            document.getElementById('clear-btn').addEventListener('click', function() {
-                // Limpar todas as seleções de rádio
-                const radioButtons = document.querySelectorAll('input[type="radio"]');
-                radioButtons.forEach(radio => {
-                    radio.checked = false;
-                });
-                
-                // Resetar progresso
-                updateProgress();
-            });
+    html += `</div>`;
+    qDiv.innerHTML = html;
+    questionsContainer.appendChild(qDiv);
+  });
 
-            // Event listener para botão de enviar
-            document.getElementById('submit-btn').addEventListener('click', function() {
-                const studentName = document.getElementById('student-name').value;
-                const studentNumber = document.getElementById('student-number').value;
-                const activityDate = document.getElementById('activity-date').value;
-                
-                // Validar se o aluno foi selecionado
-                if (!studentName) {
-                    alert('Por favor, selecione seu nome na lista.');
-                    return;
-                }
-                
-                // Validar se a data foi preenchida
-                if (!activityDate) {
-                    alert('Por favor, preencha a data da atividade.');
-                    return;
-                }
-                
-                // Verificar se todas as questões foram respondidas
-                let allAnswered = true;
-                questions.forEach(question => {
-                    const selectedOption = document.querySelector(`input[name="q${question.id}"]:checked`);
-                    if (!selectedOption) {
-                        allAnswered = false;
-                    }
-                });
-                
-                if (!allAnswered) {
-                    const confirmSubmit = confirm('Você não respondeu todas as questões. Deseja enviar mesmo assim?');
-                    if (!confirmSubmit) {
-                        return;
-                    }
-                }
-                
-                // Calcular a nota
-                let score = 0;
-                questions.forEach(question => {
-                    const selectedOption = document.querySelector(`input[name="q${question.id}"]:checked`);
-                    if (selectedOption && selectedOption.value === question.correct) {
-                        score++;
-                    }
-                });
-                
-                const finalScore = (score / questions.length) * 10;
-                
-                // Enviar para o Google Sheets
-                submitToGoogleSheets(studentNumber, studentName, finalScore, activityDate);
-            });
+  // Barra de progresso
+  function updateProgress() {
+    const total = questions.length;
+    const answered = questions.filter(q => document.querySelector(`input[name="q${q.id}"]:checked`)).length;
+    const progress = (answered / total) * 100;
+    document.getElementById('progress-bar').style.width = `${progress}%`;
+    document.getElementById('progress-text').textContent = `${Math.round(progress)}% concluído`;
+  }
 
-            // Inicializar barra de progresso
-            updateProgress();
-        });
+  questions.forEach(q => {
+    document.querySelectorAll(`input[name="q${q.id}"]`).forEach(r => r.addEventListener("change", updateProgress));
+  });
 
-        // Função para enviar dados para o Google Sheets
-        function submitToGoogleSheets(studentNumber, studentName, score, date) {
-            // URL do Web App do Google Apps Script
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbwWYaY2kslr-1FyqXnkebF5EeEMZpkDouqMDiO7Y47MfWTtI2u6If573rSk7m6kUGqv/exec';
-            
-            const data = {
-                studentNumber: studentNumber,
-                studentName: studentName,
-                score: score,
-                date: date,
-                sheetName: '1ºH',
-                range: 'T4:T'
-            };
-            
-            fetch(scriptURL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            })
-            .then(() => {
-                alert(`Respostas enviadas com sucesso! Sua nota: ${score.toFixed(1)}`);
-            })
-            .catch(error => {
-                console.error('Erro ao enviar:', error);
-                alert('Erro ao enviar respostas. Tente novamente.');
-            });
-        }
-    </script>
+  // Limpar respostas
+  document.getElementById('clear-btn').addEventListener('click', () => {
+    document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+    updateProgress();
+  });
+
+  // Enviar
+  document.getElementById('submit-btn').addEventListener('click', async () => {
+    const studentName = document.getElementById('student-name').value;
+    if (!studentName) return alert("Por favor, selecione seu nome!");
+
+    // Calcula nota
+    let acertos = 0;
+    questions.forEach(q => {
+      const sel = document.querySelector(`input[name="q${q.id}"]:checked`);
+      if (sel && sel.value === q.correct) acertos++;
+    });
+
+    const nota = ((acertos / questions.length) * 10).toFixed(1);
+    const atividade = 1; // você pode trocar conforme a atividade atual
+
+    // Envia para servidor Render
+    try {
+      const payload = { studentName, score: parseFloat(nota), activity: atividade };
+      console.log("📤 Enviando:", payload);
+
+      const res = await fetch("https://gas-proxy-render.onrender.com/enviar", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      const text = await res.text();
+      console.log("📥 Resposta:", text);
+
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        data = { success: false, message: "Resposta não era JSON válida." };
+      }
+
+      if (data.success) {
+        alert(`✅ ${data.message}\nSua nota: ${nota}`);
+      } else {
+        alert(`⚠️ ${data.message}`);
+      }
+    } catch (err) {
+      console.error(err);
+      alert("❌ Erro ao enviar respostas. Verifique sua conexão.");
+    }
+  });
+
+  updateProgress();
+});
+</script>
+
 </body>
 </html>
+
 
 
 
