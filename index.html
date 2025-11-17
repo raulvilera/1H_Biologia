@@ -340,160 +340,138 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .question {
-            animation: fadeIn 0.5s ease forwards;
-        }
-        .question:nth-child(1) { animation-delay: 0.1s; }
-        .question:nth-child(2) { animation-delay: 0.2s; }
-        .question:nth-child(3) { animation-delay: 0.3s; }
-        .question:nth-child(4) { animation-delay: 0.4s; }
-        .question:nth-child(5) { animation-delay: 0.5s; }
-        .question:nth-child(6) { animation-delay: 0.6s; }
-        .question:nth-child(7) { animation-delay: 0.7s; }
-        .question:nth-child(8) { animation-delay: 0.8s; }
-        .question:nth-child(9) { animation-delay: 0.9s; }
-        .question:nth-child(10) { animation-delay: 1s; }
-        
-        .spin {
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div class="school-name">E.E. PROFª LYDIA KITZ MOREIRA</div>
+            <div class="school-name">Escola Estadual Professor Raul Vilela</div>
             <div class="student-info">
                 <div class="info-item">
-                    <label for="student-name">NOME:</label>
-                    <select id="student-name" class="name-select">
-                        <option value="">Selecione seu nome</option>
-                        <!-- Os nomes serão inseridos via JavaScript -->
-                    </select>
+                    <label for="student-name">Nome do Aluno:</label>
+                    <select id="student-name" class="name-select"></select>
                 </div>
                 <div class="info-item">
                     <label for="student-number">Nº:</label>
-                    <input type="text" id="student-number" class="number-input" readonly>
+                    <input type="text" id="student-number" readonly>
                 </div>
                 <div class="info-item">
-                    <label for="student-grade">SÉRIE:</label>
-                    <input type="text" id="student-grade" class="number-input" readonly>
+                    <label for="student-grade">Série:</label>
+                    <input type="text" id="student-grade" readonly>
                 </div>
                 <div class="info-item">
-                    <label for="activity-date">DATA:</label>
-                    <input type="date" id="activity-date" class="date-input">
+                    <label for="activity-date">Data:</label>
+                    <input type="date" id="activity-date" readonly>
                 </div>
             </div>
-            <div class="activity-title">ATIVIDADE DE BIOLOGIA (4ºBIMESTRE)</div>
-            <div class="theme">Tema: Células Procariontes e Transporte Transmembrana</div>
+            <h1 class="activity-title">Atividade de Biologia - 4º Bimestre</h1>
+            <p class="theme">Tema: Membrana Plasmática e Processos de Transporte</p>
         </div>
+
         <div class="progress-container">
             <div class="progress-bar">
-                <div class="progress" id="progress-bar"></div>
+                <div id="progress-bar" class="progress"></div>
             </div>
-            <div class="progress-text" id="progress-text">0% concluído</div>
+            <div id="progress-text" class="progress-text"></div>
         </div>
-        <div class="questions-container" id="questions-container">
+
+        <div class="questions-container">
             <div class="middle-layer"></div>
             
             <!-- Questão 1 -->
             <div class="question">
                 <div class="question-number">Questão 1</div>
-                <div class="question-text">Analisando os estromatólitos, estruturas rochosas formadas por cianobactérias que representam os primeiros registros fósseis de vida na Terra, podemos inferir que esses organismos foram fundamentais para a evolução da biosfera. Considerando sua importância ecológica e evolutiva, qual alternativa descreve corretamente o impacto desses primeiros seres vivos no planeta?</div>
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjogRUaR1rTrmwBgBFKQouUEBY-fAFfRhLX3FK-TDlGY3KFqEmQqTO0WoZoryug4TQlujmrPuIhSQn-dCVGWhjcESQTyAKfRVSxbcxisl5pGP98-E_KC7tceLBoiYVyJkP41AlxX0FPtkkR0EZ-DyVld1qaD9fQDUoyMFJ8pxH8XY0VARQBC8torJE-ZurV/s450/Estromatolitos.JPG" class="question-image">
+                <div class="question-text">A estrutura da membrana plasmática, conforme o modelo do mosaico fluido, é composta por uma bicamada lipídica com proteínas inseridas. Qual das alternativas descreve corretamente a função do colesterol nesta estrutura?</div>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9X-0jY6lY9b-3Z9w9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Ycapital_letter_a.png" class="question-image">
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q1" value="a" id="q1_a">
                         <label for="q1_a" class="option-text">
-                            <span class="option-letter">A.</span> Foram os primeiros organismos a desenvolver um sistema de reprodução sexuada, aumentando a variabilidade genética.
+                            <span class="option-letter">A.</span> Aumenta a fluidez da membrana em altas temperaturas e a diminui em baixas temperaturas.
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q1" value="b" id="q1_b">
                         <label for="q1_b" class="option-text">
-                            <span class="option-letter">B.</span> Desenvolveram a capacidade de fotossíntese oxigênica, alterando significativamente a composição da atmosfera terrestre primitiva.
+                            <span class="option-letter">B.</span> Facilita o transporte de íons através de canais específicos.
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q1" value="c" id="q1_c">
                         <label for="q1_c" class="option-text">
-                            <span class="option-letter">C.</span> Criaram os primeiros ecossistemas complexos com diversidade de nichos ecológicos especializados.
+                            <span class="option-letter">C.</span> Atua como receptor de sinais para hormônios e neurotransmissores.
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q1" value="d" id="q1_d">
                         <label for="q1_d" class="option-text">
-                            <span class="option-letter">D.</span> Originaram as primeiras relações de simbiose que deram origem às células eucariontes.
+                            <span class="option-letter">D.</span> Participa da síntese de ATP durante a respiração celular.
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q1" value="e" id="q1_e">
                         <label for="q1_e" class="option-text">
-                            <span class="option-letter">E.</span> Desenvolveram mecanismos de locomoção que permitiram a colonização de ambientes terrestres.
+                            <span class="option-letter">E.</span> Ancora o citoesqueleto à matriz extracelular.
                         </label>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Questão 2 -->
             <div class="question">
                 <div class="question-number">Questão 2</div>
-                <div class="question-text">Ao comparar células procariontes e eucariontes, observamos diferenças fundamentais em sua organização estrutural. Considerando a imagem que ilustra uma célula procarionte, qual das seguintes afirmações destaca corretamente uma característica exclusiva dessas células em relação às eucariontes?</div>
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhD-H9Zaxa_YHnA0ONn7LtSP0RlHkr0M3A11A4zzII4Og5xQq5A_JkpVUJ5Ucm2I5RZcWEIrIMuJrJSYD2_qt6pK7LRdxdTSO1CuG4de7JcTbFcQStqMbiV3DmM2laL5ByCmKnwY57w5y7uC2xgQLOP0v6VZkZqItbGcyMp5jV_Ph8r8To0NTa44T6zDEU7/s450/Capturar.JPG" class="question-image">
+                <div class="question-text">A osmose é um processo vital para as células, como ilustrado na imagem de uma hemácia em diferentes soluções. Se uma hemácia for colocada em uma solução hipotônica, qual será o resultado?</div>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_9Z9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Ykes.png" class="question-image">
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q2" value="a" id="q2_a">
                         <label for="q2_a" class="option-text">
-                            <span class="option-letter">A.</span> Presença de um sistema de endomembranas que compartmentaliza as funções celulares.
+                            <span class="option-letter">A.</span> A célula perderá água e sofrerá plasmólise.
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q2" value="b" id="q2_b">
                         <label for="q2_b" class="option-text">
-                            <span class="option-letter">B.</span> Material genético organizado em cromossomos lineares dentro de um núcleo definido.
+                            <span class="option-letter">B.</span> A célula ganhará água e sofrerá lise (rompimento).
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q2" value="c" id="q2_c">
                         <label for="q2_c" class="option-text">
-                            <span class="option-letter">C.</span> DNA associado a proteínas histônicas formando uma cromatina complexa.
+                            <span class="option-letter">C.</span> A célula manterá seu volume normal.
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q2" value="d" id="q2_d">
                         <label for="q2_d" class="option-text">
-                            <span class="option-letter">D.</span> Ausência de organelas membranosas como mitocôndrias e complexo golgiense.
+                            <span class="option-letter">D.</span> A célula transportará ativamente solutos para fora.
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q2" value="e" id="q2_e">
                         <label for="q2_e" class="option-text">
-                            <span class="option-letter">E.</span> Capacidade de realizar processos de endocitose e exocitose para transporte de macromoléculas.
+                            <span class="option-letter">E.</span> A célula se tornará flácida, mas não se romperá.
                         </label>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Questão 3 -->
             <div class="question">
                 <div class="question-number">Questão 3</div>
-                <div class="question-text">O processo de osmose, ilustrado na imagem, é fundamental para a manutenção do equilíbrio hídrico nas células. Em um experimento, células vegetais são colocadas em soluções com diferentes concentrações salinas. Qual das situações abaixo descreve corretamente o que ocorre quando essas células são transferidas para uma solução hipertônica?</div>
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXyYJEd-R9ZyY7nWWlq1IS_I-E3o-eEnWyxIO-OOaBS7tkjgYmxlVAKrXBhgJxGKuYXhQCUc2oCvytjPVvYodyPWHMyXa9n7vBNDAcBks23JC4CcHaP3cZE-vRIqU0rMtebUyAhOyRT4Bs16rwgZsTM9jcdCO9BgAuyTFzXdQMcoVG1NyC7T_zZzren5NT/s524/DifusaoSimples.JPG" class="question-image">
+                <div class="question-text">A imagem ilustra uma célula vegetal em um meio hipotônico. Diferente da hemácia, a célula vegetal não se rompe. Qual mecanismo explica essa resistência?</div>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_9Z9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Ykes.png" class="question-image">
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q3" value="a" id="q3_a">
                         <label for="q3_a" class="option-text">
-                            <span class="option-letter">A.</span> A célula absorve água através das aquaporinas, tornando-se túrgida e aumentando a pressão de turgescência.
+                            <span class="option-letter">A.</span> A presença da parede celular celulósica impede a expansão excessiva da célula.
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q3" value="b" id="q3_b">
                         <label for="q3_b" class="option-text">
-                            <span class="option-letter">B.</span> Ocorre plasmólise, com saída de água do vacúolo para o meio extracelular, resultando em retração do protoplasto.
+                            <span class="option-letter">B.</span> O vacúolo central bombeia ativamente o excesso de água para fora da célula.
                         </label>
                     </div>
                     <div class="option">
@@ -643,162 +621,164 @@
                     <div class="option">
                         <input type="radio" name="q7" value="a" id="q7_a">
                         <label for="q7_a" class="option-text">
-                            <span class="option-letter">A.</span> A glicose possui maior solubilidade em lipídios que o oxigênio, facilitando sua passagem.
+                            <span class="option-letter">A.</span> A glicose é uma molécula maior e polar, dificultando sua passagem pela bicamada lipídica.
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q7" value="b" id="q7_b">
                         <label for="q7_b" class="option-text">
-                            <span class="option-letter">B.</span> O oxigênio é uma molécula apolar e pequena, difundindo-se facilmente pela bicamada lipídica.
+                            <span class="option-letter">B.</span> O oxigênio utiliza canais proteicos específicos que aceleram sua passagem.
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q7" value="c" id="q7_c">
                         <label for="q7_c" class="option-text">
-                            <span class="option-letter">C.</span> A glicose utiliza proteínas carreadoras específicas que aceleram seu transporte.
+                            <span class="option-letter">C.</span> A difusão do oxigênio é um processo que consome energia (ATP).
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q7" value="d" id="q7_d">
                         <label for="q7_d" class="option-text">
-                            <span class="option-letter">D.</span> O oxigênio sofre dissociação iônica que aumenta sua permeabilidade através da membrana.
+                            <span class="option-letter">D.</span> A membrana é impermeável ao oxigênio, que passa por transporte ativo.
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q7" value="e" id="q7_e">
                         <label for="q7_e" class="option-text">
-                            <span class="option-letter">E.</span> A glicose é transportada por vesículas que se fundem com a membrana plasmática.
+                            <span class="option-letter">E.</span> A glicose se liga a fosfolipídios da membrana para ser transportada.
                         </label>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Questão 8 -->
             <div class="question">
                 <div class="question-number">Questão 8</div>
-                <div class="question-text">A imagem que representa diferentes tipos de células do corpo humano ilustra a diversidade morfológica e funcional das células eucariontes. Considerando as características dos seres vivos, qual das alternativas identifica corretamente um aspecto da organização celular que é comum a todos os organismos vivos?</div>
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAjFhqKm0IO7DUaYh1iKEZZzSot5fazg6xnCWVo0dPImuv14akfkl0R8NKTMuRohw35Y2C8U5Y0V3G-hdNzanM0-YA7cmF72Zkmtk0_hdv1e5UfP4J2TcKlKrMnpH8gOyBzyVn2D3yrRlqd0RdD5TVfNL2Jyv7SmivYGNxs1vh2yDCLe4aL7f5JGC5VQF6/s450/DiferentesCelulas.JPG" class="question-image">
+                <div class="question-text">A fagocitose, representada na imagem, é um tipo de endocitose em que a célula engloba partículas grandes. Qual das seguintes células humanas é especializada em realizar fagocitose como parte do sistema imunológico?</div>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_9Z9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Ykes.png" class="question-image">
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q8" value="a" id="q8_a">
                         <label for="q8_a" class="option-text">
-                            <span class="option-letter">A.</span> Presença de sistemas de organelas membranosas especializadas em diferentes funções.
+                            <span class="option-letter">A.</span> Neurônios
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q8" value="b" id="q8_b">
                         <label for="q8_b" class="option-text">
-                            <span class="option-letter">B.</span> Capacidade de responder a estímulos ambientais através de mecanismos de transdução de sinais.
+                            <span class="option-letter">B.</span> Hemácias
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q8" value="c" id="q8_c">
                         <label for="q8_c" class="option-text">
-                            <span class="option-letter">C.</span> Existência de um citoesqueleto complexo composto por microtúbulos, microfilamentos e filamentos intermediários.
+                            <span class="option-letter">C.</span> Macrófagos
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q8" value="d" id="q8_d">
                         <label for="q8_d" class="option-text">
-                            <span class="option-letter">D.</span> Presença de um genoma organizado em cromossomos lineares dentro de um núcleo definido.
+                            <span class="option-letter">D.</span> Células epiteliais
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q8" value="e" id="q8_e">
                         <label for="q8_e" class="option-text">
-                            <span class="option-letter">E.</span> Capacidade de realizar divisão celular por mitose com formação de fuso mitótico.
+                            <span class="option-letter">E.</span> Células musculares
                         </label>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Questão 9 -->
             <div class="question">
                 <div class="question-number">Questão 9</div>
-                <div class="question-text">A imagem que ilustra moléculas de DNA destaca a importância do material genético para a vida. Considerando a organização do DNA em células procariontes, qual das seguintes características é exclusiva dessas células em relação ao material genético?</div>
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDzqkW6cudagXwDAPWMsP0GR2VOqbO2qYZTgvc59CW-CERVfKa1VXoV9KPpXtmWtdUmoDaVGujPfkKATgHNQEial43FA1TTF01Aq4OGe1YGR_K7zFg3g6nqGtkqZvosvu_b_1iC3JWks4xwZBEdfxDncY1jtEMiEYFOOBWhxlXXyMI1ZmzriqhcTwnmld_/s450/The_Structure_of_DNA_GIF.gif" class="question-image">
+                <div class="question-text">A bomba de sódio-potássio é um exemplo clássico de transporte ativo primário. Qual das seguintes afirmações descreve corretamente seu mecanismo de ação?</div>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVbe1Oz8AqYBeP4SneTeYm5ussgD0LNUgvnScu3lGrwMmeK-7J3RWmK_PvWLj0VBvNlEJPkQMu4YJV-sEOD0JqNgrRhdEW3H7NxcirLgk_cNywu_g6PRl3B8Pw8XxgvQF3syDHWq4fMlTuJ0VkWhQrX6fQvf-JDEut470xZoXIUmuwEMGO996gt8Bua6D7/s450/7a2a51e2598ce9b58747b9cce87a2b6d387894e5.png" class="question-image">
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q9" value="a" id="q9_a">
                         <label for="q9_a" class="option-text">
-                            <span class="option-letter">A.</span> Presença de íntrons e éxons que permitem o processamento alternativo do RNA mensageiro.
+                            <span class="option-letter">A.</span> Transporta 3 íons Na+ para fora e 2 íons K+ para dentro da célula, com gasto de ATP.
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q9" value="b" id="q9_b">
                         <label for="q9_b" class="option-text">
-                            <span class="option-letter">B.</span> Associação com proteínas histônicas formando nucleossomos que compactam a cromatina.
+                            <span class="option-letter">B.</span> Transporta 2 íons Na+ para fora e 3 íons K+ para dentro da célula, sem gasto de ATP.
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q9" value="c" id="q9_c">
                         <label for="q9_c" class="option-text">
-                            <span class="option-letter">C.</span> Organização em cromossomos lineares com telômeros nas extremidades.
+                            <span class="option-letter">C.</span> Transporta íons Na+ e K+ a favor do gradiente de concentração.
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q9" value="d" id="q9_d">
                         <label for="q9_d" class="option-text">
-                            <span class="option-letter">D.</span> Localização em uma região denominada nucleoide, sem delimitação por membrana nuclear.
+                            <span class="option-letter">D.</span> É um processo de difusão facilitada que não requer energia.
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q9" value="e" id="q9_e">
                         <label for="q9_e" class="option-text">
-                            <span class="option-letter">E.</span> Replicação semiconservativa que ocorre em múltiplas origens de replicação ao longo do cromossomo.
+                            <span class="option-letter">E.</span> Cria um gradiente elétrico negativo no interior da célula.
                         </label>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Questão 10 -->
             <div class="question">
                 <div class="question-number">Questão 10</div>
-                <div class="question-text">A bomba de sódio e potássio, representada na imagem, é um exemplo clássico de transporte ativo. Considerando seu mecanismo de ação, qual das alternativas descreve corretamente como esse sistema contribui para a manutenção do potencial de repouso nas células excitáveis?</div>
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtdm7A7sglkcdChCX_dofwG36HZx_jexyPoBirqSNYEZ57HrAvkvLTagwFD4EJmT7i3G_1gUQapNw9UosV7KCbQ5HI3kRz676ynHr1eghsAU1-tz4BHvBCZhFh6SXxAAegNGvUMXcsdiVW7i4sAOv_OI2xfkPMeCG61qJnLPb56F2QwEn_Mwj6nUMPKohe/s400/v0wDge.gif" class="question-image">
+                <div class="question-text">O citoesqueleto, uma rede de filamentos proteicos, desempenha múltiplas funções na célula. Qual de seus componentes está diretamente envolvido na formação de pseudópodes durante a fagocitose?</div>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_9Z9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Y9Ykes.png" class="question-image">
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q10" value="a" id="q10_a">
                         <label for="q10_a" class="option-text">
-                            <span class="option-letter">A.</span> Promove a entrada de sódio e saída de potássio, gerando um potencial de membrana positivo no interior celular.
+                            <span class="option-letter">A.</span> Microtúbulos
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q10" value="b" id="q10_b">
                         <label for="q10_b" class="option-text">
-                            <span class="option-letter">B.</span> Estabelece um gradiente eletroquímico com alta concentração de potássio no interior e sódio no exterior da célula.
+                            <span class="option-letter">B.</span> Filamentos intermediários
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q10" value="c" id="q10_c">
                         <label for="q10_c" class="option-text">
-                            <span class="option-letter">C.</span> Mantém equilíbrio iônico através da troca passiva de sódio e potássio de acordo com seus gradientes de concentração.
+                            <span class="option-letter">C.</span> Filamentos de actina
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q10" value="d" id="q10_d">
                         <label for="q10_d" class="option-text">
-                            <span class="option-letter">D.</span> Utiliza a energia do ATP para transportar três íons de potássio para fora e dois íons de sódio para dentro da célula.
+                            <span class="option-letter">D.</span> Centríolos
                         </label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q10" value="e" id="q10_e">
                         <label for="q10_e" class="option-text">
-                            <span class="option-letter">E.</span> Atua como canal iônico regulado por voltagem que se abre durante a despolarização da membrana.
+                            <span class="option-letter">E.</span> Ribossomos
                         </label>
                     </div>
                 </div>
             </div>
+
         </div>
+
         <div class="buttons">
-            <button class="submit-btn" id="submit-btn">
+            <button id="submit-btn" class="submit-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
-                    <path d="M22 2L11 13"></path>
-                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
                 </svg>
                 Enviar Respostas
             </button>
-            <button class="clear-btn" id="clear-btn">
+            <button id="clear-btn" class="clear-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
                     <polyline points="3 6 5 6 21 6"></polyline>
                     <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
@@ -1028,7 +1008,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const resp = await fetch(APP_SCRIPT_URL, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'text/plain;charset=utf-8', // ** CORREÇÃO: Alterado para text/plain **
           },
           mode: 'cors',
           body: JSON.stringify(payload)
@@ -1083,11 +1063,3 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
