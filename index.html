@@ -790,279 +790,209 @@
         </div>
     </div>
    <script>
-/* ===========================
-   Configuração — ajustar se quiser
-   =========================== */
-const SPREADSHEET_ID = '1Yw1aZEb-bv2tFrYH9FVHT7AX1HjxFg0Go_PolcPxJM4';
-const SHEET_NAME = '1ºH';
-const START_COLUMN = 'T';
-const ACTIVITY_LINK = 'https://raulvilera.github.io/1H_Biologia/';
+// ===============================
+// CONFIGURAÇÃO
+// ===============================
+// ATENÇÃO: Substitua esta URL pela URL de implantação mais recente do seu Apps Script
+const SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbxdyi2fPYzzXyQaQnsCF8acLtvBnPnN2hTxkOMmi-5v58PTJnm1yZgqZV-jo58MiqaP/exec";
 
-// URL de implantação do seu Web App no Google Apps Script.
-// Deve começar com: https://script.google.com/macros/s/
-// Substitua pela sua URL de implantação, se necessário.
-const APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzY5ifkoaFaM3GWFN5PNCRAsJimWnyLFy8ybL8CzpjTDK8UDq-6SUr7cMnSnqkeE7GE/exec';
-
-/* ===========================
-   Lista de alunos (permanece no front-end)
-   =========================== */
+// ===============================
+// LISTA COMPLETA DE ALUNOS
+// ===============================
 const students = [
-    { number: "1", name: "ALEXANDRE BATISTA DOS SANTOS", grade: "1ºH" },
-    { number: "5", name: "ANA LÍVIA BRAGA DOS SANTOS", grade: "1ºH" },
-    { number: "11", name: "DANIELLE OLIVEIRA DA SILVA NUNES", grade: "1ºH" },
-    { number: "14", name: "ELOYSA ANDRADE OLIVEIRA SILVA", grade: "1ºH" },
-    { number: "18", name: "FELIPE MARCONDES SILVA", grade: "1ºH" },
-    { number: "19", name: "GEOVANA FERREIRA DA SILVA SOUZA", grade: "1ºH" },
-    { number: "20", name: "GEOVANNA GABRIELA PIERRE SILVA", grade: "1ºH" },
-    { number: "24", name: "ISAAK ALVAREZ MARQUEZ CAETANO", grade: "1ºH" },
-    { number: "33", name: "KEMILLY VITORIA RODRIGUES MARIANO", grade: "1ºH" },
-    { number: "34", name: "LAURA LUIZA DOS SANTOS ALMEIDA", grade: "1ºH" },
-    { number: "37", name: "MARIA EDUARDA VENCESLAU DE SOUZA", grade: "1ºH" },
-    { number: "38", name: "MATHEUS CAVALCANTE LISBOA", grade: "1ºH" },
-    { number: "40", name: "MURILLO SOUZA RODRIGUES DOS SANTOS", grade: "1ºH" },
-    { number: "45", name: "PEDRO HENRIQUE MAURICIO DA SILVA CHAGAS", grade: "1ºH" },
-    { number: "48", name: "RHUAN LIMA OLIVEIRA", grade: "1ºH" },
-    { number: "49", name: "THAINA FIDELIS XAVIER DA SILVA", grade: "1ºH" },
-    { number: "54", name: "DENIS CASTRO DURVALDO", grade: "1ºH" },
-    { number: "56", name: "ISAAC LEMOS SANTOS", grade: "1ºH" },
-    { number: "57", name: "EMILLY EDUARDA BONIFACIO DE AMORIM CORREA", grade: "1ºH" },
-    { number: "59", name: "LEONARDO ABADE DA SILVA DANTAS", grade: "1ºH" },
-    { number: "62", name: "PYETRA GOMES MARTINS", grade: "1ºH" },
-    { number: "64", name: "CARLOS EDUARDO MARTINS DA SILVA", grade: "1ºH" },
-    { number: "66", name: "STELLA MARTINS DA SILVA", grade: "1ºH" },
-    { number: "67", name: "DYESSICA MAYARA DOS SANTOS GOMES", grade: "1ºH" },
-    { number: "68", name: "LARISSA DE LOURDES DOS SANTOS", grade: "1ºH" },
-    { number: "70", name: "GUSTAVO RODRIGUES DE SOUZA", grade: "1ºH" },
-    { number: "72", name: "NAYARA BARROS DE MORAIS", grade: "1ºH" },
-    { number: "73", name: "VITÓRIA SANTOS TEIXEIRA", grade: "1ºH" },
-    { number: "75", name: "JOÃO PAULO RODRIGUES DE SOUZA FILHO", grade: "1ºH" },
-    { number: "76", name: "MARIA EDUARDA DE OLIVEIRA RODRIGUES", grade: "1ºH" },
-    { number: "77", name: "LUIZ HENRIQUE JESUS DOS SANTOS FABRICIO", grade: "1ºH" },
-    { number: "78", name: "EDUARDO CARRASCOSA PINTOR", grade: "1ºH" },
-    { number: "79", name: "GUILHERME DANIEL VELOSO DOS SANTOS", grade: "1ºH" },
-    { number: "80", name: "JOAO GABRIEL AMORIM TOBIAS", grade: "1ºH" },
-    { number: "81", name: "RIAN SANTOS MACHADO", grade: "1ºH" },
-    { number: "82", name: "JULIA ARAUJO DE LIMA", grade: "1ºH" },
-    { number: "83", name: "BRENDA ROSA DA SILVA", grade: "1ºH" },
-    { number: "84", name: "CAMILA APPOLINÁRIO", grade: "1ºH" },
-    { number: "85", name: "ARTHUR CASTRO SILVA", grade: "1ºH" },
-    { number: "86", name: "KAMILA NEVES BRITO", grade: "1ºH" }
+  { number: "1",  name: "ALEXANDRE BATISTA DOS SANTOS" },
+  { number: "5",  name: "ANA LÍVIA BRAGA DOS SANTOS" },
+  { number: "11", name: "DANIELLE OLIVEIRA DA SILVA NUNES" },
+  { number: "14", name: "ELOYSA ANDRADE OLIVEIRA SILVA" },
+  { number: "18", name: "FELIPE MARCONDES SILVA" },
+  { number: "19", name: "GEOVANA FERREIRA DA SILVA SOUZA" },
+  { number: "20", name: "GEOVANNA GABRIELA PIERRE SILVA" },
+  { number: "24", name: "ISAAK ALVAREZ MARQUEZ CAETANO" },
+  { number: "33", name: "KEMILLY VITORIA RODRIGUES MARIANO" },
+  { number: "34", name: "LAURA LUIZA DOS SANTOS ALMEIDA" },
+  { number: "37", name: "MARIA EDUARDA VENCESLAU DE SOUZA" },
+  { number: "38", name: "MATHEUS CAVALCANTE LISBOA" },
+  { number: "40", name: "MURILLO SOUZA RODRIGUES DOS SANTOS" },
+  { number: "45", name: "PEDRO HENRIQUE MAURICIO DA SILVA CHAGAS" },
+  { number: "48", name: "RHUAN LIMA OLIVEIRA" },
+  { number: "49", name: "THAINA FIDELIS XAVIER DA SILVA" },
+  { number: "54", name: "DENIS CASTRO DURVALDO" },
+  { number: "56", name: "ISAAC LEMOS SANTOS" },
+  { number: "57", name: "EMILLY EDUARDA BONIFACIO DE AMORIM CORREA" },
+  { number: "59", name: "LEONARDO ABADE DA SILVA DANTAS" },
+  { number: "62", name: "PYETRA GOMES MARTINS" },
+  { number: "64", name: "CARLOS EDUARDO MARTINS DA SILVA" },
+  { number: "66", name: "STELLA MARTINS DA SILVA" },
+  { number: "67", name: "DYESSICA MAYARA DOS SANTOS GOMES" },
+  { number: "68", name: "LARISSA DE LOURDES DOS SANTOS" },
+  { number: "70", name: "GUSTAVO RODRIGUES DE SOUZA" },
+  { number: "72", name: "NAYARA BARROS DE MORAIS" },
+  { number: "73", name: "VITÓRIA SANTOS TEIXEIRA" },
+  { number: "75", name: "JOÃO PAULO RODRIGUES DE SOUZA FILHO" },
+  { number: "76", name: "MARIA EDUARDA DE OLIVEIRA RODRIGUES" },
+  { number: "77", name: "LUIZ HENRIQUE JESUS DOS SANTOS FABRICIO" },
+  { number: "78", name: "EDUARDO CARRASCOSA PINTOR" },
+  { number: "79", name: "GUILHERME DANIEL VELOSO DOS SANTOS" },
+  { number: "80", name: "JOAO GABRIEL AMORIM TOBIAS" },
+  { number: "81", name: "RIAN SANTOS MACHADO" },
+  { number: "82", name: "JULIA ARAUJO DE LIMA" },
+  { number: "83", name: "BRENDA ROSA DA SILVA" },
+  { number: "84", name: "CAMILA APPOLINÁRIO" },
+  { number: "85", name: "ARTHUR CASTRO SILVA" },
+  { number: "86", name: "KAMILA NEVES BRITO" }
 ];
 
-/* ===========================
-   NOTA SOBRE O GABARITO
-   ===========================
-   O gabarito NÃO está presente no front-end.
-   As respostas coletadas são enviadas ao Apps Script que deve
-   realizar a conferência e devolver a nota (se implementado).
-*/
+// ===============================
+// GABARITO
+// ===============================
+const correctAnswers = {
+  q1: "b", q2: "b", q3: "a", q4: "c", q5: "a",
+  q6: "d", q7: "c", q8: "c", q9: "c", q10: "b"
+};
 
-/* ===========================
-   Helpers — progresso e leitura de respostas
-   =========================== */
+let submitted = false;
 
-function updateProgressUI() {
-  const totalQuestions = 10;
-  let answered = 0;
-  for (let i = 1; i <= totalQuestions; i++) {
-    if (document.querySelector(`input[name="q${i}"]:checked`)) answered++;
-  }
-  const perc = (answered / totalQuestions) * 100;
-  const bar = document.getElementById('progress-bar');
-  const txt = document.getElementById('progress-text');
-  if (bar) bar.style.width = `${perc}%`;
-  if (txt) txt.textContent = `${answered} de ${totalQuestions} questões respondidas (${Math.round(perc)}%)`;
-}
+// ===============================
+// INICIALIZAÇÃO
+// ===============================
+document.addEventListener("DOMContentLoaded", () => {
 
-function collectAnswers() {
-  const totalQuestions = 10;
-  const answers = {};
-  for (let i = 1; i <= totalQuestions; i++) {
-    const sel = document.querySelector(`input[name="q${i}"]:checked`);
-    answers[`q${i}`] = sel ? sel.value : '';
-  }
-  return answers;
-}
+  const studentSelect = document.getElementById("student-name");
+  const numberField = document.getElementById("student-number");
+  const dateInput = document.getElementById("activity-date");
+  const clearBtn = document.getElementById("clear-btn");
+  const submitBtn = document.getElementById("submit-btn");
+  const resultMessage = document.getElementById("result-message");
 
-/* ===========================
-   Validador simples da URL do App Script
-   =========================== */
-function isValidAppScriptUrl(url) {
-  if (!url || typeof url !== 'string') return false;
-  return url.startsWith('https://script.google.com/macros/s/');
-}
+  populateStudentDropdown(studentSelect);
 
-/* ===========================
-   Inicialização do formulário
-   =========================== */
-document.addEventListener('DOMContentLoaded', () => {
-  const studentSelect = document.getElementById('student-name');
-  const studentNumber = document.getElementById('student-number');
-  const studentGrade = document.getElementById('student-grade');
-  const activityDate = document.getElementById('activity-date');
-  const submitBtn = document.getElementById('submit-btn');
-  const clearBtn = document.getElementById('clear-btn');
-
-  // Preenche lista de alunos
-  if (studentSelect) {
-    // primeira opção vazia
-    const emptyOpt = document.createElement('option');
-    emptyOpt.value = '';
-    emptyOpt.textContent = '-- selecione o aluno --';
-    studentSelect.appendChild(emptyOpt);
-
-    students.forEach(s => {
-      const opt = document.createElement('option');
-      opt.value = s.name;
-      opt.textContent = s.name;
-      studentSelect.appendChild(opt);
-    });
-
-    studentSelect.addEventListener('change', function () {
-      const selected = students.find(x => x.name === this.value);
-      if (selected) {
-        if (studentNumber) studentNumber.value = selected.number;
-        if (studentGrade) studentGrade.value = selected.grade;
-      } else {
-        if (studentNumber) studentNumber.value = '';
-        if (studentGrade) studentGrade.value = '';
-      }
-    });
+  if (dateInput) {
+    dateInput.value = new Date().toISOString().split("T")[0];
   }
 
-  // data atual
-  if (activityDate) {
-    const today = new Date();
-    activityDate.value = today.toISOString().split('T')[0];
-  }
+  studentSelect.addEventListener("change", e => {
+    const selectedStudent = students.find(s => s.name === e.target.value);
+    numberField.value = selectedStudent ? selectedStudent.number : "";
+  });
 
-  // listeners de progresso
-  document.querySelectorAll('input[type="radio"]').forEach(r => r.addEventListener('change', updateProgressUI));
-  updateProgressUI();
+  clearBtn.addEventListener("click", () => {
+    if (submitted) {
+      alert("Você já enviou as respostas.");
+      return;
+    }
+    clearForm(resultMessage);
+  });
 
-  // limpar formulário
-  if (clearBtn) {
-    clearBtn.addEventListener('click', (ev) => {
-      ev.preventDefault();
-      document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
-      if (studentSelect) studentSelect.value = '';
-      if (studentNumber) studentNumber.value = '';
-      if (studentGrade) studentGrade.value = '';
-      updateProgressUI();
-      alert('Formulário limpo.');
-    });
-  }
+  submitBtn.addEventListener("click", async () => {
+    if (submitted) {
+      alert("Você já enviou suas respostas.");
+      return;
+    }
 
-  // envio
-  if (submitBtn) {
-    submitBtn.addEventListener('click', async (ev) => {
-      ev.preventDefault();
+    if (!validateForm()) return;
 
-      // validações básicas
-      const studentName = (studentSelect ? studentSelect.value.trim() : '');
-      const studentNum = (studentNumber ? studentNumber.value.trim() : '');
-      const studentG = (studentGrade ? studentGrade.value.trim() : '');
+    const score = calculateScore();
+    const studentName = studentSelect.value;
 
-      if (!studentName || !studentNum || !studentG) {
-        alert('Preencha Nome, Número e Série antes de enviar.');
-        return;
-      }
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Enviando...";
 
-      const answers = collectAnswers();
-      const totalAnswered = Object.values(answers).filter(v => v !== '').length;
-      const totalQuestions = 10;
+    try {
+      const serverResponse = await sendToGoogleSheets(studentName, score);
+      submitted = true;
 
-      if (totalAnswered < totalQuestions) {
-        if (!confirm(`Você respondeu ${totalAnswered}/${totalQuestions} questões. Deseja enviar mesmo assim?`)) {
-          return;
-        }
-      }
-
-      // Validar URL do Apps Script
-      if (!isValidAppScriptUrl(APP_SCRIPT_URL)) {
-        alert('URL do App Script inválida ou não configurada. Substitua APP_SCRIPT_URL pela URL de implantação do seu Web App.');
-        return;
-      }
-
-      // prepara payload — **sem incluir o gabarito**
-      const payload = {
-        timestamp: new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }),
-        nome: studentName,
-        numero: studentNum,
-        serie: studentG,
-        link_atividade: ACTIVITY_LINK,
-        spreadsheet_id: SPREADSHEET_ID,
-        sheet_name: SHEET_NAME,
-        start_column: START_COLUMN,
-        // respostas brutas
-        respostas: answers
-      };
-
-      // UI: desativa botão e mostra carregando
-      submitBtn.disabled = true;
-      const originalLabel = submitBtn.innerHTML;
-      submitBtn.innerHTML = 'Enviando...';
-
-      try {
-        // faz o POST ao Apps Script
-        const resp = await fetch(APP_SCRIPT_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'text/plain;charset=utf-8', // ** CORREÇÃO: Alterado para text/plain **
-          },
-          mode: 'cors',
-          body: JSON.stringify(payload)
-        });
-
-        if (!resp.ok) {
-          // tenta ler corpo de erro (limita o tamanho)
-          let text = await resp.text().catch(() => '');
-          text = text ? text.substring(0, 500) : '';
-          throw new Error(`Erro ${resp.status} ${resp.statusText}. ${text}`);
-        }
-
-        // tenta interpretar JSON de resposta. Caso o servidor retorne nota/acertos, mostra ao usuário.
-        let json = {};
-        try { json = await resp.json(); } catch (e) { json.message = 'Enviado com sucesso. Sem detalhes do servidor.'; }
-
-        // Mensagem ao usuário — preferir mensagem enviada pelo servidor se existir
-        const serverMsg = json.message || json.status || 'Enviado com sucesso e registrado.';
-        let userMsg = `${serverMsg}\n\nAluno: ${studentName}\nNúmero: ${studentNum}\nSérie: ${studentG}\nRespostas enviadas: ${totalAnswered}/${totalQuestions}`;
-
-        // se servidor devolveu nota/acertos, exibimos (opcional)
-        if (json.nota !== undefined) userMsg += `\nNota: ${json.nota}`;
-        if (json.acertos !== undefined) userMsg += `\nAcertos: ${json.acertos}/${totalQuestions}`;
-
-        alert(userMsg);
-
-        // limpa o formulário
-        document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
-        if (studentSelect) studentSelect.value = '';
-        if (studentNumber) studentNumber.value = '';
-        if (studentGrade) studentGrade.value = '';
-        updateProgressUI();
-
-      } catch (err) {
-        console.error('Erro no envio:', err);
-        let msg = 'Ocorreu um erro ao tentar enviar as respostas. ';
-        if (err.message.includes('Failed to fetch') || err.message.includes('NetworkError')) {
-          msg += 'Problema de conexão, URL do App Script incorreta, ou CORS. Verifique a URL e as configurações de implantação do Web App (Executar como: EU / Acesso: Qualquer pessoa, mesmo anônimo).';
-        } else if (err.message.includes('CORS')) {
-          msg += 'Erro de CORS: verifique as respostas de cabeçalho CORS no Apps Script.';
-        } else {
-          msg += `Detalhes: ${err.message}`;
-        }
-        alert(msg);
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalLabel;
-      }
-    });
-  }
+      showResult(score, resultMessage, serverResponse.message);
+      alert(`Enviado com sucesso! Nota: ${score}/10`);
+    } catch (err) {
+      alert("Erro ao enviar: " + err.message);
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Enviar respostas";
+    }
+  });
 });
+
+// ===============================
+// FUNÇÕES
+// ===============================
+function populateStudentDropdown(select) {
+  select.innerHTML = '<option value="">Selecione seu nome</option>';
+
+  students.forEach(s => {
+    const opt = document.createElement("option");
+    opt.value = s.name;
+    opt.textContent = s.name;
+    select.appendChild(opt);
+  });
+}
+
+function validateForm() {
+  if (!document.getElementById("student-name").value) {
+    alert("Selecione seu nome.");
+    return false;
+  }
+  if (!document.getElementById("activity-date").value) {
+    alert("Preencha a data.");
+    return false;
+  }
+  return true;
+}
+
+function calculateScore() {
+  let score = 0;
+
+  for (let i = 1; i <= 10; i++) {
+    const selected = document.querySelector(`input[name="q${i}"]:checked`);
+    if (selected && selected.value === correctAnswers[`q${i}`]) {
+      score++;
+    }
+  }
+  return score;
+}
+
+function showResult(score, el, msg) {
+  const pct = (score / 10) * 100;
+  el.textContent = `Nota: ${score}/10 (${pct}%). ${msg}`;
+  el.style.display = "block";
+}
+
+function clearForm(resultBox) {
+  document.getElementById("quiz-form").reset();
+  document.getElementById("student-number").value = "";
+  resultBox.style.display = "none";
+}
+
+// ===============================
+// ENVIO AO GOOGLE SHEETS (DEFINITIVO)
+// ===============================
+function sendToGoogleSheets(studentName, score) {
+  return new Promise((resolve, reject) => {
+
+    const formData = new FormData();
+    formData.append('studentName', studentName);
+    formData.append('nota', score);
+    formData.append('atividade', 'Biologia 1');
+
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      if (!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
+      return response.json();
+    })
+    .then(result => {
+      if (result.success) resolve(result);
+      else reject(new Error(result.message));
+    })
+    .catch(err => reject(new Error("Falha na requisição: " + err.message)));
+  });
+}
 </script>
+
 </body>
 </html>
+
 
 
 
